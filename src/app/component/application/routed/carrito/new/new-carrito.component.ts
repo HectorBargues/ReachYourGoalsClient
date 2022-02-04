@@ -10,8 +10,8 @@ import {
   ICarritoToSend,
 } from 'src/app/model/carrito-interfaces';
 import { CarritoService } from 'src/app/service/carrito.service';
-import { ProductoService } from 'src/app/service/producto.service';
-import { IProducto } from 'src/app/model/producto-interfaces';
+import { ServicioService } from 'src/app/service/servicio.service';
+import { IServicio } from 'src/app/model/servicio-interfaces';
 
 declare let $: any;
 
@@ -43,7 +43,7 @@ export class NewCarritoComponent implements OnInit {
     private oCarritoService: CarritoService,
     private oLocation: Location,
     public oIconService: IconService,
-    private oProductoService: ProductoService,
+    private oServicioService: ServicioService,
 
   ) {
     if (this.oRoute.snapshot.data.message) {
@@ -62,7 +62,7 @@ export class NewCarritoComponent implements OnInit {
     this.oForm = this.oFormBuilder.group({
       cantidad: ['', [Validators.required]],
       precio: ['', [Validators.required]],
-      producto: ['', [Validators.required]],
+      servicio: ['', [Validators.required]],
       usuario: ['', [Validators.required]],
     });
   }
@@ -73,7 +73,7 @@ export class NewCarritoComponent implements OnInit {
         id: this.oForm.value.id,
         cantidad: this.oForm.value.cantidad,
         precio: this.oForm.value.precio,
-        producto: this.oForm.value.producto,
+        servicio: this.oForm.value.servicio,
         usuario: this.oForm.value.usuario,
       };
       this.new();
@@ -83,13 +83,13 @@ export class NewCarritoComponent implements OnInit {
   new = (): void => {
     this.oCarritoService
       .newOne(this.oCarritoToSend)
-      .subscribe((oTipoProducto: ICarritoPlist) => {
-        if (oTipoProducto.id) {
-          this.id = oTipoProducto.id;
+      .subscribe((oTipoServicio: ICarritoPlist) => {
+        if (oTipoServicio.id) {
+          this.id = oTipoServicio.id;
           this.strResult =
             this.strTitleSingular +
             ' creado correctamente con id=' +
-            oTipoProducto.id;
+            oTipoServicio.id;
         } else {
           this.strResult =
             this.strTitleSingular + ': error en la creación del registro';
@@ -103,41 +103,41 @@ export class NewCarritoComponent implements OnInit {
   }
 
   //modal
-  showingModalProducto: boolean = false;
+  showingModalServicio: boolean = false;
 
-  eventsSubjectShowModalProducto: Subject<void> = new Subject<void>();
-  eventsSubjectHideModalProducto: Subject<void> = new Subject<void>();
+  eventsSubjectShowModalServicio: Subject<void> = new Subject<void>();
+  eventsSubjectHideModalServicio: Subject<void> = new Subject<void>();
 
-  openModalProducto(): void {
-    this.eventsSubjectShowModalProducto.next();
-    this.showingModalProducto = true;
+  openModalServicio(): void {
+    this.eventsSubjectShowModalServicio.next();
+    this.showingModalServicio = true;
   }
 
-  closeModalProducto(): void {
-    this.eventsSubjectHideModalProducto.next();
-    this.showingModalProducto = false;
+  closeModalServicio(): void {
+    this.eventsSubjectHideModalServicio.next();
+    this.showingModalServicio = false;
   }
 
-  onSelectionProducto($event: any) {
+  onSelectionServicio($event: any) {
     console.log("edit evento recibido: " + $event)
-    this.oForm.controls['producto'].setValue($event);
+    this.oForm.controls['servicio'].setValue($event);
   }
 
-  onChangeProducto($event: any) {
+  onChangeServicio($event: any) {
 
-    console.log("--->" + this.oForm.controls['producto'].value);
-    this.oForm.controls['producto'].markAsDirty();
+    console.log("--->" + this.oForm.controls['servicio'].value);
+    this.oForm.controls['servicio'].markAsDirty();
 
     //aqui cerrar la ventana emergente 
-    if (this.showingModalProducto) {
-      this.closeModalProducto();
+    if (this.showingModalServicio) {
+      this.closeModalServicio();
     }
 
     //actualizar el usuario
-    this.oProductoService
-      .get(this.oForm.controls['producto'].value)
-      .subscribe((oData: IProducto) => {
-        this.oCarritoPlist.producto = oData;
+    this.oServicioService
+      .get(this.oForm.controls['servicio'].value)
+      .subscribe((oData: IServicio) => {
+        this.oCarritoPlist.servicio = oData;
         //this.oUsuario = oData;
       });
 

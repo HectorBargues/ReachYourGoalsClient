@@ -1,47 +1,43 @@
 <div class="row justify-content-center">
-  <table class="table table-striped">
-    <tbody>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('id')"></i> ID</th>
-        <td>{{oUsuario?.id}}</td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('dni')"></i> DNI</th>
-        <td>{{oUsuario?.dni}}</td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('nombre')"></i> Nombre</th>
-        <td>{{oUsuario?.nombre}}</td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('nombre')"></i> Primer Apellido</th>
-        <td>{{oUsuario?.apellido1}}</td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('nombre')"></i> Segundo Apellido</th>
-        <td>{{oUsuario?.apellido2}}</td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('login')"></i> Login</th>
-        <td>{{oUsuario?.login}}</td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('email')"></i> email</th>
-        <td>{{oUsuario?.email}}</td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('validado')"></i> validado</th>
-        <td [innerHTML]="oUsuario?.validado | showBoolean"></td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('activado')"></i> activado</th>
-        <td [innerHTML]="oUsuario?.activo | showBoolean"></td>
-      </tr>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th><i [ngClass]="oIconService.getIcon('id')"></i> ID</th>
+                <td>{{oUsuario?.id}}</td>
+            </tr>
+            <tr>
+                <th><i [ngClass]="oIconService.getIcon('dni')"></i> DNI</th>
+                <td>{{oUsuario?.dni}}</td>
+            </tr>
+            <tr>
+                <th><i [ngClass]="oIconService.getIcon('nombre')"></i> Nombre</th>
+                <td>{{oUsuario?.nombre}}</td>
+            </tr>
+            <tr>
+                <th><i [ngClass]="oIconService.getIcon('nombre')"></i>Apellidos</th>
+                <td>{{oUsuario?.apellidos}}</td>
+            </tr>
+            <tr>
+                <th><i [ngClass]="oIconService.getIcon('login')"></i> Login</th>
+                <td>{{oUsuario?.login}}</td>
+            </tr>
+            <tr>
+                <th><i [ngClass]="oIconService.getIcon('email')"></i> email</th>
+                <td>{{oUsuario?.email}}</td>
+            </tr>
+            <tr>
+                <th><i [ngClass]="oIconService.getIcon('validado')"></i> validado</th>
+                <td [innerHTML]="oUsuario?.validado | showBoolean"></td>
+            </tr>
+            <tr>
+                <th><i [ngClass]="oIconService.getIcon('activado')"></i> activado</th>
+                <td [innerHTML]="oUsuario?.activo | showBoolean"></td>
+            </tr>
 
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('tipousuario')"></i> Tipo Usuario</th>
-        <td>({{oUsuario?.tipousuario.id}}) {{oUsuario?.tipousuario.nombre}}</td>
-      </tr>
-    </tbody>
-  </table>
+            <tr>
+                <th><i [ngClass]="oIconService.getIcon('tipousuario')"></i> Tipo Usuario</th>
+                <td>({{oUsuario?.tipousuario.id}}) {{oUsuario?.tipousuario.nombre}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

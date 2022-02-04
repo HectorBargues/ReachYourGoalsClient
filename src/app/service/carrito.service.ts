@@ -28,7 +28,7 @@ export class CarritoService {
     filter: string,
     order: string,
     direction: string,
-    idproducto: number,
+    idservicio: number,
     idusuario: number
   ): Observable<ICarritoPage> {
     let strOrderUrl: string = '';
@@ -39,8 +39,8 @@ export class CarritoService {
     if (filter) {
       strOrderUrl += '&filter=' + filter;
     }
-    if (idproducto) {
-      strOrderUrl += '&idproducto=' + idproducto;
+    if (idservicio) {
+      strOrderUrl += '&idservicio=' + idservicio;
     } else if (idusuario) {
       strOrderUrl += '&idusuario=' + idusuario;
     }

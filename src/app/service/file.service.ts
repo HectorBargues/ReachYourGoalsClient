@@ -12,7 +12,7 @@ export class FileService {
 
     uploadImage(imageFile: File): Observable<number> {
 
-        console.log("producto-service imageFile: ", imageFile);
+        console.log("servicio-service imageFile: ", imageFile);
         let headers = new HttpHeaders();
 
         let params = new HttpParams();

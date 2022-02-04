@@ -17,7 +17,7 @@ export class CompraService {
 
   sURL = API_URL + '/compra';
 
-  getPage(rpp: number, page: number, filter: string, order: string, direction: string, factura: number, producto: number): Observable<IPageCompra> {
+  getPage(rpp: number, page: number, filter: string, order: string, direction: string, factura: number, servicio: number): Observable<IPageCompra> {
     page--;
     let strOrderUrl: string = "";
     if (filter) {
@@ -29,8 +29,8 @@ export class CompraService {
     if(factura){
       strOrderUrl += "&factura=" + factura;
     }
-    if(producto){
-      strOrderUrl += "&producto=" + producto;
+    if(servicio){
+      strOrderUrl += "&servicio=" + servicio;
     }
     console.log(this.sURL + "?page=" + page + "&size=" + rpp + strOrderUrl, httpOptions);
     return this.http.get<IPageCompra>(this.sURL + "?page=" + page + "&size=" + rpp + strOrderUrl, httpOptions);

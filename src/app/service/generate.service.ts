@@ -12,8 +12,8 @@ import { API_URL, httpOptions } from 'src/environments/environment';
 export class GenerateService {
   constructor(private http: HttpClient) { }  
 
-  generateProductos(n: number): Observable<number> {
-    return this.http.post<number>(API_URL + '/producto/generate/' + n, { amount: n }, httpOptions);
+  generateServicios(n: number): Observable<number> {
+    return this.http.post<number>(API_URL + '/servicio/generate/' + n, { amount: n }, httpOptions);
   }
 
   generateUsuarios(n: number): Observable<number> {
@@ -25,8 +25,8 @@ export class GenerateService {
   }
 
 
-  generateTiposDeProductos(n: number): Observable<number> {
-    return this.http.post<number>(API_URL + '/tipoproducto/generate/' + n, { amount: n }, httpOptions);
+  generateTiposDeServicios(n: number): Observable<number> {
+    return this.http.post<number>(API_URL + '/tiposervicio/generate/' + n, { amount: n }, httpOptions);
   }
 
   generateFacturas(n: number): Observable<number> {

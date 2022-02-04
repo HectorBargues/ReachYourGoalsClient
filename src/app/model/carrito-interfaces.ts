@@ -1,11 +1,11 @@
-import { IProducto } from './producto-interfaces';
+import { IServicio } from './servicio-interfaces';
 import { IUsuario } from './usuario-interfaces';
 
 export interface ICarritoPlist {
   id: number;
   cantidad: number;
   precio: number;
-  producto: IProducto;
+  servicio: IServicio;
   usuario: IUsuario;
 }
 
@@ -19,6 +19,6 @@ export interface ICarritoToSend {
   id: number;
   cantidad: number;
   precio: number;
-  producto: number;
+  servicio: number;
   usuario: number;
 }

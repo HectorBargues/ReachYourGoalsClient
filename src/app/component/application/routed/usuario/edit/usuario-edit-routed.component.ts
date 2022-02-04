@@ -61,8 +61,7 @@ export class UsuarioEditRoutedComponent implements OnInit {
     this.oForm = this.oFormBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(5)]],
       dni: ['', [Validators.required, Validators.minLength(5)]],
-      apellido1: ['', [Validators.required, Validators.minLength(5)]],
-      apellido2: ['', [Validators.required, Validators.minLength(5)]],
+      apellidos: ['', [Validators.required, Validators.minLength(10)]],
       login: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.minLength(5)]],
       tusuario: ['', [Validators.required, Validators.maxLength(1)]],
@@ -82,8 +81,7 @@ export class UsuarioEditRoutedComponent implements OnInit {
             [Validators.required, Validators.minLength(5)]
           ],
           login: [this.oUsuario2Show.login, [Validators.required, Validators.minLength(5)]],
-          apellido1: [this.oUsuario2Show.apellido1, [Validators.required, Validators.minLength(5)]],
-          apellido2: [this.oUsuario2Show.apellido2, [Validators.required, Validators.minLength(5)]],
+          apellidos: [this.oUsuario2Show.apellidos, [Validators.required, Validators.minLength(10)]],
           email: [this.oUsuario2Show.email, [Validators.required, Validators.minLength(5)]],
           dni: [this.oUsuario2Show.dni, [Validators.required, Validators.minLength(5)]],
           tusuario: [this.oUsuario2Show.tipousuario.id, [Validators.required, Validators.minLength(1)]]
@@ -97,11 +95,9 @@ export class UsuarioEditRoutedComponent implements OnInit {
         id: this.oForm.value.id,
         nombre: this.oForm.value.nombre,
         dni: this.oForm.value.dni,
-        apellido1: this.oForm.value.apellido1,
-        apellido2: this.oForm.value.apellido2,
+        apellidos: this.oForm.value.apellidos,
         login: this.oForm.value.login,
         email: this.oForm.value.email,
-        descuento: 0,
         validado: true,
         activo: true,
         tipousuario: {

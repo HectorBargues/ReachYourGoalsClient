@@ -2,9 +2,7 @@
 
 <div class="container my-3">
 
-  <app-header [title]="'Carga aleatoria de registros'" [icon]="oIconService.getIcon('random')"
-    [iconEntity]="oIconService.getIcon('random')">
-  </app-header>
+  
 
   <div class="row justify-content-center">
 
@@ -55,34 +53,34 @@
           </td>
         </tr>
         <tr>
-          <th><i [ngClass]="oIconService.getIcon('tipoproducto')"></i> Tipos de Producto</th>
-          <td class="text-center">{{nTiposProducto}}</td>
+          <th><i [ngClass]="oIconService.getIcon('tiposervicio')"></i> Tipos de Servicio</th>
+          <td class="text-center">{{nTiposServicio}}</td>
           <td class="text-center">
             <div class="btn-group btn-group-sm" role="group" aria-label="Tools">
-              <button type="button" class="btn btn-success mx-2" (click)="generateTiposDeProductos(10)"><i
+              <button type="button" class="btn btn-success mx-2" (click)="generateTiposDeServicios(10)"><i
                   [ngClass]="oIconService.getIcon('random')"></i>
                 10</button>
-              <button type="button" class="btn btn-success mx-2" (click)="generateTiposDeProductos(100)"><i
+              <button type="button" class="btn btn-success mx-2" (click)="generateTiposDeServicios(100)"><i
                   [ngClass]="oIconService.getIcon('random')"></i>
                 100</button>
-              <button type="button" class="btn btn-success mx-2" (click)="generateTiposDeProductos(1000)"><i
+              <button type="button" class="btn btn-success mx-2" (click)="generateTiposDeServicios(1000)"><i
                   [ngClass]="oIconService.getIcon('random')"></i>
                 1000</button>
             </div>
           </td>
         </tr>
         <tr>
-          <th><i [ngClass]="oIconService.getIcon('producto')"></i> Productos</th>
-          <td class="text-center">{{nProductos}}</td>
+          <th><i [ngClass]="oIconService.getIcon('servicio')"></i> Servicios</th>
+          <td class="text-center">{{nServicios}}</td>
           <td class="text-center">
             <div class="btn-group btn-group-sm" role="group" aria-label="Tools">
-              <button type="button" class="btn btn-success mx-2" (click)="generateProductos(10)"><i
+              <button type="button" class="btn btn-success mx-2" (click)="generateServicios(10)"><i
                   [ngClass]="oIconService.getIcon('random')"></i>
                 10</button>
-              <button type="button" class="btn btn-success mx-2" (click)="generateProductos(100)"><i
+              <button type="button" class="btn btn-success mx-2" (click)="generateServicios(100)"><i
                   [ngClass]="oIconService.getIcon('random')"></i>
                 100</button>
-              <button type="button" class="btn btn-success mx-2" (click)="generateProductos(1000)"><i
+              <button type="button" class="btn btn-success mx-2" (click)="generateServicios(1000)"><i
                   [ngClass]="oIconService.getIcon('random')"></i>
                 1000</button>
             </div>

@@ -12,8 +12,8 @@ import { API_URL, httpOptions } from 'src/environments/environment';
 export class CountService {
   constructor(private http: HttpClient) { }
 
-  getCountProductos(): Observable<number> {
-    return this.http.get<number>(API_URL + '/producto/count', httpOptions);
+  getCountServicios(): Observable<number> {
+    return this.http.get<number>(API_URL + '/servicio/count', httpOptions);
   }
 
   getCountUsuarios(): Observable<number> {
@@ -24,8 +24,8 @@ export class CountService {
     return this.http.get<number>(API_URL + '/tipousuario/count', httpOptions);
   }
 
-  getCountTiposProducto(): Observable<number> {
-    return this.http.get<number>(API_URL + '/tipoproducto/count', httpOptions);
+  getCountTiposServicio(): Observable<number> {
+    return this.http.get<number>(API_URL + '/tiposervicio/count', httpOptions);
   }
 
   getCountCompras(): Observable<number> {

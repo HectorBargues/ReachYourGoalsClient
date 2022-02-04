@@ -1,11 +1,10 @@
-
-<app-menu></app-menu>
+<app-menu>
+</app-menu>
 
 <div class="container my-3">
-    
-    <app-header [title]="'Listado de ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)"
-    [iconEntity]="oIconService.getIcon(this.strEntity)">
-  </app-header>
+
+    <app-header [title]="'Listado de ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)" [iconEntity]="oIconService.getIcon(this.strEntity)">
+    </app-header>
     <div class="row justify-content-center">
         <table class="table table-striped">
             <tbody>
@@ -19,13 +18,13 @@
                 </tr>
                 <tr>
                     <th><i [ngClass]="oIconService.getIcon('usuario')"></i> Usuario</th>
-                    <td>{{oFactura?.usuario.nombre}} {{oFactura?.usuario.apellido1}} {{oFactura?.usuario.apellido2}}</td>
+                    <td>{{oFactura?.usuario.nombre}} {{oFactura?.usuario.apellidos}}</td>
                 </tr>
                 <tr>
                     <th> <i [ngClass]="oIconService.getIcon('fecha')"></i> Fecha</th>
                     <td>{{oFactura?.fecha }}</td>
                 </tr>
-               
+
                 <tr>
                     <th><i [ngClass]="oIconService.getIcon('pagado')"></i> Pagado</th>
                     <td [innerHTML]="oFactura?.pagado | showBoolean"></td>

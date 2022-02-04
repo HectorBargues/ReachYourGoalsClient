@@ -1,4 +1,4 @@
-import { IProducto } from 'src/app/model/producto-interfaces';
+import { IServicio } from 'src/app/model/servicio-interfaces';
 import { FacturaService } from './../../../../../service/factura.service';
 import { IFactura } from './../../../../../model/factura-interfaces';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +10,7 @@ import { DateTimeService } from 'src/app/service/datetime.service';
 import { Location } from '@angular/common';
 import { Subject } from 'rxjs';
 import { IconService } from 'src/app/service/icon.service';
-import { ProductoService } from 'src/app/service/producto.service';
+import { ServicioService } from 'src/app/service/servicio.service';
 
 declare let $: any;
 
@@ -38,7 +38,7 @@ export class EditCompraComponent implements OnInit {
     private oRouter: Router,
     private oCompraService: CompraService,
     private oFacturaService: FacturaService,
-    private oProductoService: ProductoService,
+    private oServicioService: ServicioService,
     private oActivatedRoute: ActivatedRoute,
     private oRoute: ActivatedRoute,
     private oLocation: Location,
@@ -85,9 +85,7 @@ export class EditCompraComponent implements OnInit {
         cantidad: [this.oCompra.cantidad, Validators.required],
         precio: [this.oCompra.precio, Validators.required],
         fecha: [this.oCompra.fecha, Validators.required],
-        descuento_usuario: [this.oCompra.descuento_usuario, Validators.required],
-        descuento_producto: [this.oCompra.descuento_producto, Validators.required],
-        producto: [this.oCompra.producto.id, Validators.required],
+        servicio: [this.oCompra.servicio.id, Validators.required],
         factura: [this.oCompra.factura?.id]
       });
     })
@@ -102,10 +100,8 @@ export class EditCompraComponent implements OnInit {
           cantidad: this.oForm.value.cantidad,
           precio: this.oForm.value.precio,
           fecha: this.oForm.value.fecha.replace("-", "/").replace("-", "/"),
-          descuento_usuario: this.oForm.value.descuento_usuario,
-          descuento_producto: this.oForm.value.descuento_producto,
-          producto: {
-            id: this.oForm.value.producto
+          servicio: {
+            id: this.oForm.value.servicio
           },
           factura: null
         }
@@ -117,10 +113,8 @@ export class EditCompraComponent implements OnInit {
           cantidad: this.oForm.value.cantidad,
           precio: this.oForm.value.precio,
           fecha: this.oForm.value.fecha.replace("-", "/").replace("-", "/"),
-          descuento_usuario: this.oForm.value.descuento_usuario,
-          descuento_producto: this.oForm.value.descuento_producto,
-          producto: {
-            id: this.oForm.value.producto
+          servicio: {
+            id: this.oForm.value.servicio
           },
           factura: {
             id: this.oForm.get("factura")!.value
@@ -153,14 +147,14 @@ export class EditCompraComponent implements OnInit {
   fila: IFactura;
   id_usuario: number = null;
   showingModalFactura: boolean = false;
-  showingModalProducto: boolean = false;
+  showingModalServicio: boolean = false;
 
 
   eventsSubjectShowModalFactura: Subject<void> = new Subject<void>();
   eventsSubjectHideModalFactura: Subject<void> = new Subject<void>();
 
-  eventsSubjectShowModalProducto: Subject<void> = new Subject<void>();
-  eventsSubjectHideModalProducto: Subject<void> = new Subject<void>();
+  eventsSubjectShowModalServicio: Subject<void> = new Subject<void>();
+  eventsSubjectHideModalServicio: Subject<void> = new Subject<void>();
 
 
   openModalFactura(): void {
@@ -168,9 +162,9 @@ export class EditCompraComponent implements OnInit {
     this.showingModalFactura = true;
   }
 
-  openModalProducto(): void {
-    this.eventsSubjectShowModalProducto.next();
-    this.showingModalProducto = true;
+  openModalServicio(): void {
+    this.eventsSubjectShowModalServicio.next();
+    this.showingModalServicio = true;
   }
 
   closeModalFactura(): void {
@@ -178,9 +172,9 @@ export class EditCompraComponent implements OnInit {
     this.showingModalFactura = false;
   }
 
-  closeModalProducto(): void {
-    this.eventsSubjectHideModalProducto.next();
-    this.showingModalProducto = false;
+  closeModalServicio(): void {
+    this.eventsSubjectHideModalServicio.next();
+    this.showingModalServicio = false;
   }
 
   onSelectionFactura($event: any) {
@@ -188,9 +182,9 @@ export class EditCompraComponent implements OnInit {
     this.oForm.controls['factura'].setValue($event);
   }
 
-  onSelectionProducto($event: any) {
+  onSelectionServicio($event: any) {
     console.log("edit evento recibido: " + $event)
-    this.oForm.controls['producto'].setValue($event);
+    this.oForm.controls['servicio'].setValue($event);
   }
 
   onChangeFactura($event: any) {
@@ -214,21 +208,21 @@ export class EditCompraComponent implements OnInit {
     return false;
   }
 
-  onChangeProducto($event: any) {
+  onChangeServicio($event: any) {
 
-    console.log("--->" + this.oForm.controls['producto'].value);
-    this.oForm.controls['producto'].markAsDirty();
+    console.log("--->" + this.oForm.controls['servicio'].value);
+    this.oForm.controls['servicio'].markAsDirty();
 
     //aqui cerrar la ventana emergente 
-    if (this.showingModalProducto) {
-      this.closeModalProducto();
+    if (this.showingModalServicio) {
+      this.closeModalServicio();
     }
 
     //actualizar el usuario
-    this.oProductoService
-      .get(this.oForm.controls['producto'].value)
-      .subscribe((oData: IProducto) => {
-        this.oCompra.producto = oData;
+    this.oServicioService
+      .get(this.oForm.controls['servicio'].value)
+      .subscribe((oData: IServicio) => {
+        this.oCompra.servicio = oData;
         //this.oUsuario = oData;
       });
 

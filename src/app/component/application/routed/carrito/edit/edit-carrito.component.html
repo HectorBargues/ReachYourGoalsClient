@@ -41,23 +41,23 @@
       </div>
 
       <div class="row mb-3">
-        <label for="id_producto" class="col-sm-2 col-form-label">
-          <i [ngClass]="oIconService.getIcon('producto')"></i> Producto</label>
+        <label for="id_servicio" class="col-sm-2 col-form-label">
+          <i [ngClass]="oIconService.getIcon('servicio')"></i> Servicio</label>
 
         <div class="col-sm-5">
           <div class="input-group">
             <span class="input-group-text">{{
-              "Producto "
+              "Servicio "
             }}</span>
             <input
               type="number"
               class="form-control"
-              id="producto"
-              formControlName="producto"
-              (ngModelChange)="onChangeProducto($event)"
+              id="servicio"
+              formControlName="servicio"
+              (ngModelChange)="onChangeServicio($event)"
             />
-            <button type="button" class="btn btn-success" id="botonProducto" (click)="openModalProducto()">
-              Buscar producto
+            <button type="button" class="btn btn-success" id="botonServicio" (click)="openModalServicio()">
+              Buscar servicio
             </button>
           </div>
         </div>
@@ -116,12 +116,12 @@
 
 <app-footer></app-footer>
 
-<app-modal [show]="eventsSubjectShowModalProducto.asObservable()" [size]="'xl'" [hide]="eventsSubjectHideModalProducto.asObservable()"
-    (close)="closeModalProducto()" [mimodal]="'modalProducto'">
+<app-modal [show]="eventsSubjectShowModalServicio.asObservable()" [size]="'xl'" [hide]="eventsSubjectHideModalServicio.asObservable()"
+    (close)="closeModalServicio()" [mimodal]="'modalServicio'">
     
-    <app-producto-plist-unrouted  [mode]="false" (selection)="onSelectionProducto($event)">
+    <app-servicio-plist-unrouted  [mode]="false" (selection)="onSelectionServicio($event)">
         <header></header>        
-    </app-producto-plist-unrouted>
+    </app-servicio-plist-unrouted>
 </app-modal>
 
 <app-popup [show]="eventsSubjectShowPopup.asObservable()" [body]="strResult" (close)="onClosePopup()"></app-popup>

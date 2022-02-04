@@ -13,16 +13,16 @@ import { NewFacturaComponent } from './component/application/routed/factura/new/
 import { FacturaPlistRoutedComponent } from './component/application/routed/factura/plist/factura-plist-routed.component';
 import { RemoveFacturaComponent } from './component/application/routed/factura/remove/remove-factura.component';
 import { ViewFacturaComponent } from './component/application/routed/factura/view/view-factura.component';
-import { EditProductoComponent } from './component/application/routed/producto/edit/edit-producto.component';
-import { NewProductoComponent } from './component/application/routed/producto/new/new-producto.component';
-import { PlistProductoComponent } from './component/application/routed/producto/plist/plist-producto.component';
-import { ProductoRemoveRoutedComponent } from './component/application/routed/producto/remove/producto-remove-routed.component';
-import { ProductoViewRoutedComponent } from './component/application/routed/producto/view/producto-view-routed.component';
-import { EditTipoproductoComponent } from './component/application/routed/tipoproducto/edit/edit-tipoproducto.component';
-import { NewTipoproductoComponent } from './component/application/routed/tipoproducto/new/new-tipoproducto.component';
-import { PlistTipoproductoComponent } from './component/application/routed/tipoproducto/plist/tipoproducto-plist-routed.component';
-import { RemoveTipoproductoComponent } from './component/application/routed/tipoproducto/remove/remove-tipoproducto.component';
-import { ViewTipoproductoComponent } from './component/application/routed/tipoproducto/view/view-tipoproducto.component';
+import { EditServicioComponent } from './component/application/routed/servicio/edit/edit-servicio.component';
+import { NewServicioComponent } from './component/application/routed/servicio/new/new-servicio.component';
+import { PlistServicioComponent } from './component/application/routed/servicio/plist/plist-servicio.component';
+import { ServicioRemoveRoutedComponent } from './component/application/routed/servicio/remove/servicio-remove-routed.component';
+import { ServicioViewRoutedComponent } from './component/application/routed/servicio/view/servicio-view-routed.component';
+import { EditTiposervicioComponent } from './component/application/routed/tiposervicio/edit/edit-tiposervicio.component';
+import { NewTiposervicioComponent } from './component/application/routed/tiposervicio/new/new-tiposervicio.component';
+import { PlistTiposervicioComponent } from './component/application/routed/tiposervicio/plist/tiposervicio-plist-routed.component';
+import { RemoveTiposervicioComponent } from './component/application/routed/tiposervicio/remove/remove-tiposervicio.component';
+import { ViewTiposervicioComponent } from './component/application/routed/tiposervicio/view/view-tiposervicio.component';
 import { TipousuarioEditRoutedComponent } from './component/application/routed/tipousuario/edit/tipousuario-edit-routed.component';
 import { TipousuarioPlistRoutedComponent } from './component/application/routed/tipousuario/plist/tipousuario-plist-routed.component';
 import { TipousuarioViewRoutedComponent } from './component/application/routed/tipousuario/view/tipousuario-view-routed.component';
@@ -60,22 +60,22 @@ const routes: Routes = [
   { path: 'usuario/edit/:id', component: UsuarioEditRoutedComponent, resolve: { message: SessionResolver } },
   { path: 'usuario/remove/:id', component: UsuarioRemoveRoutedComponent, resolve: { message: SessionResolver } },
 
-  { path: 'tipoproducto/plist', component: PlistTipoproductoComponent, resolve: { message: SessionResolver } },
-  { path: 'tipoproducto/view/:id', component: ViewTipoproductoComponent, resolve: { message: SessionResolver } },
-  { path: 'tipoproducto/new', component: NewTipoproductoComponent, resolve: { message: SessionResolver } },
-  { path: 'tipoproducto/edit/:id', component: EditTipoproductoComponent, resolve: { message: SessionResolver } },
-  { path: 'tipoproducto/remove/:id', component: RemoveTipoproductoComponent, resolve: { message: SessionResolver } },
+  { path: 'tiposervicio/plist', component: PlistTiposervicioComponent, resolve: { message: SessionResolver } },
+  { path: 'tiposervicio/view/:id', component: ViewTiposervicioComponent, resolve: { message: SessionResolver } },
+  { path: 'tiposervicio/new', component: NewTiposervicioComponent, resolve: { message: SessionResolver } },
+  { path: 'tiposervicio/edit/:id', component: EditTiposervicioComponent, resolve: { message: SessionResolver } },
+  { path: 'tiposervicio/remove/:id', component: RemoveTiposervicioComponent, resolve: { message: SessionResolver } },
 
-  { path: 'producto/plist', component: PlistProductoComponent, resolve: { message: SessionResolver } },
-  { path: 'producto/plist/tipoproducto/:id_tipoproducto', component: PlistProductoComponent, resolve: { message: SessionResolver } },
-  { path: 'producto/view/:id', component: ProductoViewRoutedComponent, resolve: { message: SessionResolver } },
-  { path: 'producto/new', component: NewProductoComponent, resolve: { message: SessionResolver } },  
-  { path: 'producto/edit/:id', component: EditProductoComponent, resolve: { message: SessionResolver } },
-  { path: 'producto/remove/:id', component: ProductoRemoveRoutedComponent, resolve: { message: SessionResolver } },
+  { path: 'servicio/plist', component: PlistServicioComponent, resolve: { message: SessionResolver } },
+  { path: 'servicio/plist/tiposervicio/:id_tiposervicio', component: PlistServicioComponent, resolve: { message: SessionResolver } },
+  { path: 'servicio/view/:id', component: ServicioViewRoutedComponent, resolve: { message: SessionResolver } },
+  { path: 'servicio/new', component: NewServicioComponent, resolve: { message: SessionResolver } },  
+  { path: 'servicio/edit/:id', component: EditServicioComponent, resolve: { message: SessionResolver } },
+  { path: 'servicio/remove/:id', component: ServicioRemoveRoutedComponent, resolve: { message: SessionResolver } },
 
   { path: 'compra/plist', component: PlistCompraComponent, resolve: { message: SessionResolver } },
   { path: 'compra/plist/factura/:id_factura', component: PlistCompraComponent, resolve: { message: SessionResolver } },
-  { path: 'compra/plist/producto/:id_producto', component: PlistCompraComponent, resolve: { message: SessionResolver } },
+  { path: 'compra/plist/servicio/:id_servicio', component: PlistCompraComponent, resolve: { message: SessionResolver } },
   { path: 'compra/view/:id', component: ViewCompraComponent, resolve: { message: SessionResolver } },  
   { path: 'compra/new', component: NewCompraComponent, resolve: { message: SessionResolver } },  
   { path: 'compra/edit/:id', component: EditCompraComponent, resolve: { message: SessionResolver } },
@@ -89,7 +89,7 @@ const routes: Routes = [
   { path: 'factura/remove/:id', component: RemoveFacturaComponent, resolve: { message: SessionResolver } },
 
   { path: 'carrito/plist', component: PlistCarritoComponent, resolve: { message: SessionResolver } },
-  { path: 'carrito/plist/producto/:idproducto', component: PlistCarritoComponent, resolve: { message: SessionResolver } },
+  { path: 'carrito/plist/servicio/:idservicio', component: PlistCarritoComponent, resolve: { message: SessionResolver } },
   { path: 'carrito/plist/usuario/:idusuario', component: PlistCarritoComponent, resolve: { message: SessionResolver } },
   { path: 'carrito/new', component: NewCarritoComponent, resolve: { message: SessionResolver } },
   { path: 'carrito/view/:id', component: ViewCarritoComponent, resolve: { message: SessionResolver } },

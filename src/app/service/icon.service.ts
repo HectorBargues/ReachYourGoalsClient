@@ -12,8 +12,8 @@ export class IconService {
     switch (true) {
       // 
       case strIcon == "system": return "fas fa-shopping-basket";
-      case strIcon == "producto": return "fas fa-gift";
-      case strIcon == "tipoproducto": return "fas fa-tag";
+      case strIcon == "servicio": return "fas fa-gift";
+      case strIcon == "tiposervicio": return "fas fa-tag";
       case strIcon == "usuario": return "fas fa-user";
       case strIcon == "tipousuario": return "fas fa-user-tag";
       case strIcon == "compra": return "fas fa-cash-register";

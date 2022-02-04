@@ -1,26 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav id="navbar" class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="assets/img/wildCartLogo100.png" width="30"> wildCART</a>
+        <a class="navbar-brand" href="#"><img src="assets/img/wildCartLogo100.png" width="30"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
+            
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <small>
-                        <a class="nav-link" [class.active]="strUrl=='/home'" aria-current="page"
-                            [routerLink]="['/home']"><i [ngClass]="oIconService.getIcon('home')"></i>
-                            Página principal</a>
+                        <a id="reach" class="nav-link" [class.active]="strUrl=='/home'" aria-current="page"
+                            [routerLink]="['/home']">
+                            Reach Your <br> Goals</a>
                     </small>
                 </li>
-                <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
-                    <small>
-                        <a class="nav-link" [class.active]="strUrl=='/usuario/plist'"
-                            [routerLink]="['/usuario/plist']"><i [ngClass]="oIconService.getIcon('usuario')"></i>
-                            Usuarios</a>
-                    </small>
-                </li>
+               
                 <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
                     <small>
                         <a class="nav-link" [class.active]="strUrl=='/tipousuario/plist'"
@@ -30,16 +25,16 @@
                 </li>
                 <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
                     <small>
-                        <a class="nav-link" [class.active]="strUrl=='/producto/plist'"
-                            [routerLink]="['/producto/plist']"><i [ngClass]="oIconService.getIcon('producto')"></i>
-                            Producto</a>
+                        <a class="nav-link" [class.active]="strUrl=='/servicio/plist'"
+                            [routerLink]="['/servicio/plist']"><i [ngClass]="oIconService.getIcon('servicio')"></i>
+                            Servicio</a>
                     </small>
                 </li>
                 <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
                     <small>
-                        <a class="nav-link" [class.active]="strUrl=='/tipoproducto/plist'"
-                            [routerLink]="['/tipoproducto/plist']"><i
-                                [ngClass]="oIconService.getIcon('tipoproducto')"></i> Tipos de Producto</a>
+                        <a class="nav-link" [class.active]="strUrl=='/tiposervicio/plist'"
+                            [routerLink]="['/tiposervicio/plist']"><i
+                                [ngClass]="oIconService.getIcon('tiposervicio')"></i> Tipos de Servicio</a>
                     </small>
                 </li>
                 <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
@@ -56,12 +51,7 @@
                     </small>
                 </li>
 
-                <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
-                    <small>
-                        <a class="nav-link" [class.active]="strUrl=='/random/load'" [routerLink]="['/random/load']"><i
-                                [ngClass]="oIconService.getIcon('random')"></i> Carga aleatoria</a>
-                    </small>
-                </li>
+             
                 <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
                     <small>
                         <a class="nav-link" [class.active]="strUrl=='/reports'" [routerLink]="['/reports']"><i
@@ -76,29 +66,56 @@
                     </small>
                 </li>
             </ul>
+            <ul id="firstnav"  class="navbar-nav me-end mb-2 mb-lg-0">
+               
+                <li  class="nav-link" *ngIf="oUsuarioSession ===null">
+                    <small>
+                        <a id="firstnav" class="nav-link" [class.active]="strUrl=='/compra/plist'" [routerLink]="['/compra/plist']"> Busca un club</a>
+                    </small>
+                </li>
+                <li  class="nav-link" *ngIf="oUsuarioSession ===null">
+                    <small>
+                        <a id="firstnav" class="nav-link" [class.active]="strUrl=='/factura/plist'"
+                            [routerLink]="['/factura/plist']">
+                            Tarifas</a>
+                    </small>
+                </li>
+
+             
+                <li  class="nav-link" *ngIf="oUsuarioSession ===null">
+                    <small>
+                        <a id="firstnav" class="nav-link" [class.active]="strUrl=='/reports'" [routerLink]="['/reports']"> Clases</a>
+                    </small>
+                </li>
+                <li  class="nav-link" *ngIf="oUsuarioSession ===null">
+                    <small>
+                        <a id="firstnav" class="nav-link" [class.active]="strUrl=='/carrito/plist'"
+                            [routerLink]="['/carrito/plist']"><i [ngClass]="oIconService.getIcon('carrito')"></i>
+                            Tienda</a>
+                    </small>
+                </li>
+            </ul>
 
             <span class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==2">
                 <small>
-                    <a class="nav-link" [class.active]="strUrl=='/carrito/plist'" [routerLink]="['/carrito/plist']"><i
+                    <a id="reach" class="nav-link" [class.active]="strUrl=='/carrito/plist'" [routerLink]="['/carrito/plist']"><i
                             [ngClass]="oIconService.getIcon('carrito')"></i> {{tcarrito}}</a>
                 </small>
             </span>
 
             <span class="navbar-text" *ngIf="oUsuarioSession"> <i [ngClass]="oIconService.getIcon('usuario')"></i>
-                <small> {{oUsuarioSession.nombre + " " + oUsuarioSession.apellido1 + " (" +
-                    oUsuarioSession.tipousuario.nombre+")"}}</small>
+                <small> {{oUsuarioSession.nombre + " " + oUsuarioSession.apellidos }}</small>
             </span>
 
             <span class="navbar-text" *ngIf="!oUsuarioSession">
                 <small>
-                    <a class="nav-link" [class.active]="strUrl=='/login'" [routerLink]="['/login']"><i
-                            [ngClass]="oIconService.getIcon('login')"></i> Login</a>
+                    <a id="reach" class="nav-link" [class.active]="strUrl=='/login'" [routerLink]="['/login']">Login</a>
                 </small>
             </span>
 
             <span class="navbar-text" *ngIf="oUsuarioSession">
                 <small>
-                    <a class="nav-link" [class.active]="strUrl=='/logout'" [routerLink]="['/logout']"><i
+                    <a id="reach" class="nav-link" [class.active]="strUrl=='/logout'" [routerLink]="['/logout']"><i
                             [ngClass]="oIconService.getIcon('logout')"></i> Logout</a>
                 </small>
             </span>

@@ -11,8 +11,8 @@ export class NameService {
     if (strLang == "esp" && strNumero=="singular") {
       switch (true) {
         // entities
-        case strToken == "producto": return "Producto";
-        case strToken == "tipoproducto": return "Tipo de Producto";
+        case strToken == "servicio": return "Servicio";
+        case strToken == "tiposervicio": return "Tipo de Servicio";
         case strToken == "usuario": return "Usuario";
         case strToken == "tipousuario": return "Tipo de usuario";
         case strToken == "compra": return "Compra";

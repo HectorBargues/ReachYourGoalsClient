@@ -31,7 +31,7 @@ export class UsuarioService {
     return this.http.get<IPageUsuario>(this.sURL + "/page" + "?size=" + rpp + "&page=" + page + strOrderUrl + filterStr, httpOptions);
   }
 
-  getPageFiltered(rpp: number, page: number, order: string, direction: string, filter: string, tipoproducto: number): Observable<IPageUsuario> {
+  getPageFiltered(rpp: number, page: number, order: string, direction: string, filter: string, tiposervicio: number): Observable<IPageUsuario> {
     let strOrderUrl: string = "";
     let filterStr: string = "";
     if (order) {
@@ -41,7 +41,7 @@ export class UsuarioService {
       filterStr += "&filter=" + filter;
     }
     page--;
-    return this.http.get<IPageUsuario>(this.sURL + "/page" + "?size=" + rpp + "&page=" + page + strOrderUrl + filterStr + "&filtertype=" + tipoproducto, httpOptions);
+    return this.http.get<IPageUsuario>(this.sURL + "/page" + "?size=" + rpp + "&page=" + page + strOrderUrl + filterStr + "&filtertype=" + tiposervicio, httpOptions);
   }
 
 

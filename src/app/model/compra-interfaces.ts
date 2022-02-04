@@ -1,6 +1,6 @@
 import { IFactura } from "./factura-interfaces";
 import { I2Send, IFecha } from "./model-interfaces";
-import { IProducto } from "./producto-interfaces";
+import { IServicio } from "./servicio-interfaces";
 
 export interface IPageCompra {
     content: ICompra[];
@@ -13,9 +13,7 @@ export interface ICompra {
     cantidad: number,
     precio: number,
     fecha: IFecha,
-    descuento_usuario: number,
-    descuento_producto: number,
-    producto: IProducto,
+    servicio: IServicio,
     factura: IFactura
 
 }
@@ -25,9 +23,7 @@ export interface ICompraToSend {
     cantidad: number,
     precio: number,
     fecha: string,
-    descuento_usuario: number,
-    descuento_producto: number,
-    producto: I2Send,
+    servicio: I2Send,
     factura: I2Send
 
 }

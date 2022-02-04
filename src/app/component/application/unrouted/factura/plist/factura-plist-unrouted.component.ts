@@ -132,7 +132,7 @@ export class FacturaPlistUnroutedComponent implements OnInit {
     doc.setFontSize(18)
     doc.text('Cliente', 20, 80)
     doc.setFontSize(16)
-    doc.text(oFactura?.usuario?.nombre + " " + oFactura?.usuario?.apellido1 + " " + oFactura?.usuario?.apellido2, 20, 89)
+    doc.text(oFactura?.usuario?.nombre + " " + oFactura?.usuario?.apellidos + " ", 20, 89)
     doc.setFontSize(14)
 
     doc.text(oFactura?.usuario?.email, 20, 95)
@@ -153,7 +153,7 @@ export class FacturaPlistUnroutedComponent implements OnInit {
     doc.text(oFactura.id + "", 42, 120)
     doc.text(oFactura.fecha + "", 42, 129)
 
-    doc.text('Producto', 20, 140)
+    doc.text('Servicio', 20, 140)
     doc.text('Cantidad', 100, 140)
     doc.text('Precio (€)', 130, 140)
     doc.text('Importe (€)', 170, 140)
@@ -162,7 +162,7 @@ export class FacturaPlistUnroutedComponent implements OnInit {
     return doc;
   }
 
-  getProductos = (tamanyo: number, factura: number) => {
+  getServicios = (tamanyo: number, factura: number) => {
     console.log("buscando...", this.strFilter);
     this.oCompraService.getPage(tamanyo, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, factura, null).subscribe((oPage: IPageCompra) => {
       if (this.strFilter) {
@@ -195,12 +195,12 @@ export class FacturaPlistUnroutedComponent implements OnInit {
 
       for (let i = 0; i < this.oFactura.compras; i++) {
 
-        doc.text(this.aCompras[i].producto.nombre, 20, linea)
+        doc.text(this.aCompras[i].servicio.nombre, 20, linea)
         doc.text(this.aCompras[i].cantidad + "", 100, linea)
-        doc.text(this.aCompras[i].producto.precio + "", 130, linea)
-        doc.text((this.aCompras[i].cantidad * this.aCompras[i].producto.precio) + "", 170, linea)
+        doc.text(this.aCompras[i].servicio.precio + "", 130, linea)
+        doc.text((this.aCompras[i].cantidad * this.aCompras[i].servicio.precio) + "", 170, linea)
 
-        total= total + (this.aCompras[i].cantidad * this.aCompras[i].producto.precio);
+        total= total + (this.aCompras[i].cantidad * this.aCompras[i].servicio.precio);
         linea = linea+7;
 
         if (linea>230){
@@ -229,7 +229,7 @@ export class FacturaPlistUnroutedComponent implements OnInit {
 
     this.oFacturaService.getOne(id).subscribe((oData: IFactura) => {
       this.oFactura = oData;
-      this.getProductos(this.oFactura.compras, this.oFactura.id);
+      this.getServicios(this.oFactura.compras, this.oFactura.id);
       console.log(this.oFactura);
 
 

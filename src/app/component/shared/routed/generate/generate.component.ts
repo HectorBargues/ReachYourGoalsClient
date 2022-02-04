@@ -15,10 +15,10 @@ import { CountService } from 'src/app/service/count.service';
 export class GenerateComponent implements OnInit {
 
   oUserSession: IUsuario;
-  nProductos: number = 0;
+  nServicios: number = 0;
   nUsuarios: number = 0;
   nTiposDeUsuario: number = 0;
-  nTiposProducto: number = 0;
+  nTiposServicio: number = 0;
   nCompras: number = 0;
   nFacturas: number = 0;
   nCarritos: number = 0;
@@ -49,11 +49,11 @@ export class GenerateComponent implements OnInit {
 
   getCount(): void {
     this.bLoading=true;
-    this.oCountService.getCountProductos().subscribe((n: number) => this.nProductos = n);
+    this.oCountService.getCountServicios().subscribe((n: number) => this.nServicios = n);
     this.oCountService.getCountCarritos().subscribe((n: number) => this.nCarritos = n);
     this.oCountService.getCountCompras().subscribe((n: number) => this.nCompras = n);
     this.oCountService.getCountFacturas().subscribe((n: number) => this.nFacturas = n);
-    this.oCountService.getCountTiposProducto().subscribe((n: number) => this.nTiposProducto = n);
+    this.oCountService.getCountTiposServicio().subscribe((n: number) => this.nTiposServicio = n);
     this.oCountService.getCountUsuarios().subscribe((n: number) => this.nUsuarios = n);
     this.oCountService.getCountTiposUsuario().subscribe((n: number) => this.nTiposDeUsuario = n);
     this.bLoading=false;
@@ -63,11 +63,11 @@ export class GenerateComponent implements OnInit {
     this.oLocation.back();
   }
 
-  generateProductos(n: number): void {
+  generateServicios(n: number): void {
     this.bLoading=true;
-    this.oGenerateService.generateProductos(n).subscribe(
+    this.oGenerateService.generateServicios(n).subscribe(
       (num: number) => {
-        this.strResult = "Ahora hay " + num + " productos";
+        this.strResult = "Ahora hay " + num + " servicios";
         this.bLoading=false;
         this.openModal();
       },
@@ -99,7 +99,7 @@ export class GenerateComponent implements OnInit {
     this.bLoading=true;
     this.oGenerateService.generateTiposDeUsuario().subscribe(
       (num: number) => {
-        this.strResult = "Ahora hay " + num + " tipos de producto";
+        this.strResult = "Ahora hay " + num + " tipos de servicio";
         this.bLoading=false;
         this.openModal();
       },
@@ -111,11 +111,11 @@ export class GenerateComponent implements OnInit {
       })
   }
 
-  generateTiposDeProductos(n: number) {
+  generateTiposDeServicios(n: number) {
     this.bLoading=true;
-    this.oGenerateService.generateTiposDeProductos(n).subscribe(
+    this.oGenerateService.generateTiposDeServicios(n).subscribe(
       (num: number) => {
-        this.strResult = "Ahora hay " + num + " tipos de producto";
+        this.strResult = "Ahora hay " + num + " tipos de servicio";
         this.bLoading=false;
         this.openModal();
       },

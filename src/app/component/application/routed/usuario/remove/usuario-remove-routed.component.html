@@ -2,9 +2,8 @@
 
 <div class="container my-3">
 
-    <app-header [title]="'Borrado de ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)"
-    [iconEntity]="oIconService.getIcon(this.strEntity)">
-  </app-header>
+    <app-header [title]="'Borrado de ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)" [iconEntity]="oIconService.getIcon(this.strEntity)">
+    </app-header>
     <div class="row justify-content-center">
         <table class="table table-striped">
             <tbody>
@@ -17,13 +16,10 @@
                     <td>{{oUsuario?.nombre}}</td>
                 </tr>
                 <tr>
-                    <th>Primer Apellido</th>
-                    <td>{{oUsuario?.apellido1}}</td>
+                    <th>Apellidos</th>
+                    <td>{{oUsuario?.apellidos}}</td>
                 </tr>
-                <tr>
-                    <th>Segundo Apellido</th>
-                    <td>{{oUsuario?.apellido2}}</td>
-                </tr>
+
                 <tr>
                     <th>DNI</th>
                     <td>{{oUsuario?.dni}}</td>

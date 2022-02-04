@@ -34,7 +34,7 @@ export class PlistCompraComponent implements OnInit {
   subjectFiltro$ = new Subject();
 
   id_factura: number;
-  id_producto: number;
+  id_servicio: number;
 
   constructor(
     private oRoute: ActivatedRoute,
@@ -55,14 +55,14 @@ export class PlistCompraComponent implements OnInit {
 
     this.id_factura = this.oActivatedRoute.snapshot.params.id_factura;
     if (this.id_factura) {
-      this.strFilteredMessage = "Listado filtrado por el tipo de producto " + this.id_factura;
+      this.strFilteredMessage = "Listado filtrado por el tipo de servicio " + this.id_factura;
     } else {
       this.strFilteredMessage = "";
     }
 
-    this.id_producto = this.oActivatedRoute.snapshot.params.id_producto;
-    if (this.id_producto) {
-      this.strFilteredMessage = "Listado filtrado por el tipo de producto " + this.id_producto;
+    this.id_servicio = this.oActivatedRoute.snapshot.params.id_servicio;
+    if (this.id_servicio) {
+      this.strFilteredMessage = "Listado filtrado por el tipo de servicio " + this.id_servicio;
     } else {
       this.strFilteredMessage = "";
     }
@@ -79,7 +79,7 @@ export class PlistCompraComponent implements OnInit {
 
   getPage = () => {
     console.log("buscando...", this.strFilter);
-    this.oCompraService.getPage(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, this.id_factura, this.id_producto).subscribe((oPage: IPageCompra) => {
+    this.oCompraService.getPage(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, this.id_factura, this.id_servicio).subscribe((oPage: IPageCompra) => {
       if (this.strFilter) {
         this.strFilteredMessage = "Listado filtrado: " + this.strFilter;
       } else {

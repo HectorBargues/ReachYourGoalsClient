@@ -2,10 +2,9 @@
 
 <div class="container my-3">
 
-    <app-header [title]="'Borrado de ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)"
-    [iconEntity]="oIconService.getIcon(this.strEntity)">
+    <app-header [title]="'Borrado de ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)" [iconEntity]="oIconService.getIcon(this.strEntity)">
     </app-header>
-        
+
     <div class="row justify-content-center">
         <table class="table table-striped">
             <tbody>
@@ -26,16 +25,8 @@
                     <td>{{oCompra?.fecha}}</td>
                 </tr>
                 <tr>
-                    <th>Descuento usuario</th>
-                    <td>{{oCompra?.descuento_usuario}}</td>
-                </tr>
-                <tr>
-                    <th>Descuento producto</th>
-                    <td>{{oCompra?.descuento_producto}}</td>
-                </tr>
-                <tr>
-                    <th>Id producto</th>
-                    <td>{{oCompra?.producto.id  }}</td>
+                    <th>Id servicio</th>
+                    <td>{{oCompra?.servicio.id }}</td>
                 </tr>
                 <tr>
                     <th>Id factura</th>

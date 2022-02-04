@@ -1,91 +1,56 @@
 <app-menu></app-menu>
 
 <div class="container my-3">
-  <app-header
-    [title]="'Listado de ' + strTitlePlural"
-    [icon]="oIconService.getIcon(this.strOperation)"
-    [iconEntity]="oIconService.getIcon(this.strEntity)"
-    [filter]="strFilteredMessage"
-    [subtitle]="nTotalElements + ' ' + strTitlePlural"
-  >
-  </app-header>
+    <app-header [title]="'Listado de ' + strTitlePlural" [icon]="oIconService.getIcon(this.strOperation)" [iconEntity]="oIconService.getIcon(this.strEntity)" [filter]="strFilteredMessage" [subtitle]="nTotalElements + ' ' + strTitlePlural">
+    </app-header>
 
-  <div class="row justify-content-center my-3">
-    <div
-      class="col-12 d-grid gap-2 d-md-block d-md-flex justify-content-md-center"
-    >
-      <form style="width: 15em">
-        <div class="input-group input-group-sm">
-          <div class="input-group-prepend">
-            <span class="input-group-text">
+    <div class="row justify-content-center my-3">
+        <div class="col-12 d-grid gap-2 d-md-block d-md-flex justify-content-md-center">
+            <form style="width: 15em">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
               <i [ngClass]="oIconService.getIcon('filtro')"></i
             ></span>
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="{{ 'Filtro de ' + strTitlePlural }}"
-            placeholder="Search"
-            (keyup)="onKeyUpFilter($event)"
-            [(ngModel)]="strFilter"
-            name="buscar"
-            aria-label="Small"
-            aria-describedby="inputGroup-sizing-sm"
-          />
+                    </div>
+                    <input type="text" class="form-control" placeholder="{{ 'Filtro de ' + strTitlePlural }}" placeholder="Search" (keyup)="onKeyUpFilter($event)" [(ngModel)]="strFilter" name="buscar" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                </div>
+            </form>
         </div>
-      </form>
     </div>
-  </div>
 
-  <div class="row justify-content-between">
-    <div class="col-md">
-      <nav aria-label="pagination">
-        <ul class="pagination">
-          <li
-            class="page-item"
-            aria-current="page"
-            *ngFor="let p of aPaginationBar"
-            [ngClass]="{ active: nPage + '' == p }"
-          >
-            <a class="page-link" (click)="nPage = +p; jumpToPage()" href="#">{{
+    <div class="row justify-content-between">
+        <div class="col-md">
+            <nav aria-label="pagination">
+                <ul class="pagination">
+                    <li class="page-item" aria-current="page" *ngFor="let p of aPaginationBar" [ngClass]="{ active: nPage + '' == p }">
+                        <a class="page-link" (click)="nPage = +p; jumpToPage()" href="#">{{
               p
             }}</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="col-md text-center">
-      <a
-        [routerLink]="['/compra/new/']"
-        type="button"
-        class="btn btn-success mb-2"
-      >
-        <i [ngClass]="oIconService.getIcon('new')"></i> Añadir nuevo
-        {{ strTitleSingular }}
-      </a>
-    </div>
-    <div class="col-md text-end">
-      <div class="dropdown mb-3">
-        <button
-          class="btn btn-primary dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton1"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md text-center">
+            <a [routerLink]="['/compra/new/']" type="button" class="btn btn-success mb-2">
+                <i [ngClass]="oIconService.getIcon('new')"></i> Añadir nuevo {{ strTitleSingular }}
+            </a>
+        </div>
+        <div class="col-md text-end">
+            <div class="dropdown mb-3">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <i [ngClass]="oIconService.getIcon('rpp')"></i> Registros por página:
           {{ nPageSize }}
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li>
-            <a class="dropdown-item" (click)="nPageSize = 10; getPage()">10</a>
-          </li>
-          <li>
-            <a class="dropdown-item" (click)="nPageSize = 50; getPage()">50</a>
-          </li>
-          <li>
-            <a class="dropdown-item" (click)="nPageSize = 100; getPage()"
-              >100</a
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item" (click)="nPageSize = 10; getPage()">10</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" (click)="nPageSize = 50; getPage()">50</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" (click)="nPageSize = 100; getPage()">100</a
             >
           </li>
           <li>
@@ -147,51 +112,16 @@
                 *ngIf="strSortField == 'fecha' && strSortDirection == 'desc'"
               ></i>
             </th>
-            <th (click)="doSetOrder('descuento_usuario')">
-              <i [ngClass]="oIconService.getIcon('porcentaje')"></i> Descuento
-              usuario
+           
+            <th (click)="doSetOrder('servicio')">
+              <i [ngClass]="oIconService.getIcon('servicio')"></i> Servicio
               <i
                 [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="
-                  strSortField == 'descuento_usuario' &&
-                  strSortDirection == 'asc'
-                "
+                *ngIf="strSortField == 'servicio' && strSortDirection == 'asc'"
               ></i>
               <i
                 [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="
-                  strSortField == 'descuento_usuario' &&
-                  strSortDirection == 'desc'
-                "
-              ></i>
-            </th>
-            <th (click)="doSetOrder('descuento_producto')">
-              <i [ngClass]="oIconService.getIcon('porcentaje')"></i> Descuento
-              producto
-              <i
-                [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="
-                  strSortField == 'descuento_producto' &&
-                  strSortDirection == 'asc'
-                "
-              ></i>
-              <i
-                [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="
-                  strSortField == 'descuento_producto' &&
-                  strSortDirection == 'desc'
-                "
-              ></i>
-            </th>
-            <th (click)="doSetOrder('producto')">
-              <i [ngClass]="oIconService.getIcon('producto')"></i> Producto
-              <i
-                [ngClass]="oIconService.getIcon('flechaUp')"
-                *ngIf="strSortField == 'producto' && strSortDirection == 'asc'"
-              ></i>
-              <i
-                [ngClass]="oIconService.getIcon('flechaDown')"
-                *ngIf="strSortField == 'producto' && strSortDirection == 'desc'"
+                *ngIf="strSortField == 'servicio' && strSortDirection == 'desc'"
               ></i>
             </th>
             <th (click)="doSetOrder('factura')">
@@ -216,16 +146,14 @@
             <td class="text-center">{{ fila.cantidad }}</td>
             <td class="text-end">{{ fila.precio }}€</td>
             <td class="text-center">{{ fila.fecha }}</td>
-            <td class="text-center">{{ fila.descuento_usuario }}%</td>
-            <td class="text-center">{{ fila.descuento_producto }}%</td>
             <td>
               <button
                 class="btn btn-light btn-sm"
-                [routerLink]="['/compra/plist/producto/' + fila.producto.id]"
+                [routerLink]="['/compra/plist/servicio/' + fila.servicio.id]"
               >
-                <i [ngClass]="oIconService.getIcon('producto')"></i> ({{
-                  fila.producto.id
-                }}) {{ fila.producto.nombre | trim: 40 }}
+                <i [ngClass]="oIconService.getIcon('servicio')"></i> ({{
+                  fila.servicio.id
+                }}) {{ fila.servicio.nombre | trim: 40 }}
               </button>
             </td>
             <td>
@@ -238,9 +166,7 @@
                 {{
                   fila?.factura?.usuario?.nombre +
                     " " +
-                    fila?.factura?.usuario?.apellido1 +
-                    " " +
-                    fila?.factura?.usuario?.apellido2 | trim: 30
+                    fila?.factura?.usuario?.apellidos| trim: 30
                 }}
               </button>
             </td>
@@ -284,4 +210,3 @@
 </div>
 
 <app-footer></app-footer>
-

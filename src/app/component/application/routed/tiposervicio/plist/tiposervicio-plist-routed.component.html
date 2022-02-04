@@ -1,0 +1,26 @@
+<app-menu></app-menu>
+
+<div class="container my-3">
+  <app-header
+    [title]="'Listado de ' + strTitlePlural"
+    [icon]="oIconService.getIcon(this.strOperation)"
+    [iconEntity]="oIconService.getIcon(this.strEntity)"
+    [filter]="strFilteredMessage"
+    [subtitle]="nTotalElements + ' ' + strTitlePlural"
+  >
+  </app-header>
+
+  <app-tiposervicioplistunrouted [mode]="true">
+    <header></header>
+
+    <!--
+        <ng-template let-fila>
+            <button type="button" class="btn btn-success" (click)="onSelection(fila.id)")><i
+                    class="fas fa-eye"></i></button>
+        </ng-template>
+        -->
+  </app-tiposervicioplistunrouted>
+</div>
+
+<app-footer></app-footer>
+

@@ -10,9 +10,9 @@ import {
   ICarritoToSend,
 } from 'src/app/model/carrito-interfaces';
 import { CarritoService } from 'src/app/service/carrito.service';
-import { ProductoService } from 'src/app/service/producto.service';
+import { ServicioService } from 'src/app/service/servicio.service';
 import { ICompra } from 'src/app/model/compra-interfaces';
-import { IProducto } from 'src/app/model/producto-interfaces';
+import { IServicio } from 'src/app/model/servicio-interfaces';
 
 declare let $: any;
 
@@ -45,7 +45,7 @@ export class EditCarritoComponent implements OnInit {
     private oActivatedRoute: ActivatedRoute,
     private oLocation: Location,
     public oIconService: IconService,
-    private oProductoService: ProductoService,
+    private oServicioService: ServicioService,
 
   ) {
     if (this.oRoute.snapshot.data.message) {
@@ -72,7 +72,7 @@ export class EditCarritoComponent implements OnInit {
         id: [this.oCarritoPlist.id],
         cantidad: [this.oCarritoPlist.cantidad, [Validators.required]],
         precio: [this.oCarritoPlist.precio, [Validators.required]],
-        producto: [this.oCarritoPlist.producto.id, [Validators.required]],
+        servicio: [this.oCarritoPlist.servicio.id, [Validators.required]],
         usuario: [this.oCarritoPlist.usuario.id, [Validators.required]],
       });
     });
@@ -84,7 +84,7 @@ export class EditCarritoComponent implements OnInit {
         id: this.oForm.value.id,
         cantidad: this.oForm.value.cantidad,
         precio: this.oForm.value.precio,
-        producto: this.oForm.value.producto,
+        servicio: this.oForm.value.servicio,
         usuario: this.oForm.value.usuario,
       };
       this.update();
@@ -110,41 +110,41 @@ export class EditCarritoComponent implements OnInit {
   }
 
   //modal
-  showingModalProducto: boolean = false;
+  showingModalServicio: boolean = false;
 
-  eventsSubjectShowModalProducto: Subject<void> = new Subject<void>();
-  eventsSubjectHideModalProducto: Subject<void> = new Subject<void>();
+  eventsSubjectShowModalServicio: Subject<void> = new Subject<void>();
+  eventsSubjectHideModalServicio: Subject<void> = new Subject<void>();
 
-  openModalProducto(): void {
-    this.eventsSubjectShowModalProducto.next();
-    this.showingModalProducto = true;
+  openModalServicio(): void {
+    this.eventsSubjectShowModalServicio.next();
+    this.showingModalServicio = true;
   }
 
-  closeModalProducto(): void {
-    this.eventsSubjectHideModalProducto.next();
-    this.showingModalProducto = false;
+  closeModalServicio(): void {
+    this.eventsSubjectHideModalServicio.next();
+    this.showingModalServicio = false;
   }
 
-  onSelectionProducto($event: any) {
+  onSelectionServicio($event: any) {
     console.log("edit evento recibido: " + $event)
-    this.oForm.controls['producto'].setValue($event);
+    this.oForm.controls['servicio'].setValue($event);
   }
 
-  onChangeProducto($event: any) {
+  onChangeServicio($event: any) {
 
-    console.log("--->" + this.oForm.controls['producto'].value);
-    this.oForm.controls['producto'].markAsDirty();
+    console.log("--->" + this.oForm.controls['servicio'].value);
+    this.oForm.controls['servicio'].markAsDirty();
 
     //aqui cerrar la ventana emergente 
-    if (this.showingModalProducto) {
-      this.closeModalProducto();
+    if (this.showingModalServicio) {
+      this.closeModalServicio();
     }
 
     //actualizar el usuario
-    this.oProductoService
-      .get(this.oForm.controls['producto'].value)
-      .subscribe((oData: IProducto) => {
-        this.oCarritoPlist.producto = oData;
+    this.oServicioService
+      .get(this.oForm.controls['servicio'].value)
+      .subscribe((oData: IServicio) => {
+        this.oCarritoPlist.servicio = oData;
         //this.oUsuario = oData;
       });
 

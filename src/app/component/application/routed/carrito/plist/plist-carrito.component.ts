@@ -1,5 +1,5 @@
-import { ProductoService } from '../../../../../service/producto.service';
-import { IPageProducto, IProducto } from 'src/app/model/producto-interfaces';
+import { ServicioService } from '../../../../../service/servicio.service';
+import { IPageServicio, IServicio } from 'src/app/model/servicio-interfaces';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -34,7 +34,7 @@ export class PlistCarritoComponent implements OnInit {
   strFilteredMessage: string = '';
   oUserSession: IUsuario;
   subjectFiltro$ = new Subject();
-  id_producto: number = null;
+  id_servicio: number = null;
   id_usuario: number = null;
 
   constructor(
@@ -55,12 +55,12 @@ export class PlistCarritoComponent implements OnInit {
       localStorage.clear();
       oRouter.navigate(['/home']);
     }
-    this.id_producto = this.oRoute.snapshot.params.idproducto;
+    this.id_servicio = this.oRoute.snapshot.params.idservicio;
     this.id_usuario = this.oRoute.snapshot.params.idusuario;
 
-    if (this.id_producto) {
+    if (this.id_servicio) {
       this.strFilteredMessage =
-        'Listado filtrado por el producto ' + this.id_producto;
+        'Listado filtrado por el servicio ' + this.id_servicio;
     } else if (this.id_usuario) {
       this.strFilteredMessage =
         'Listado filtrado por el usuario' + this.id_usuario;
@@ -92,7 +92,7 @@ export class PlistCarritoComponent implements OnInit {
         this.strFilter,
         this.strSortField,
         this.strSortDirection,
-        this.id_producto,
+        this.id_servicio,
         this.id_usuario
       )
       .subscribe((oPage: ICarritoPage) => {

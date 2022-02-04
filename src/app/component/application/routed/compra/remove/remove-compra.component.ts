@@ -49,7 +49,7 @@ export class RemoveCompraComponent implements OnInit {
   getOne = () => {
     this.oPostService.get(this.id).subscribe((oData: ICompra) => {
       this.oCompra = oData;
-      console.log(oData.producto);
+      console.log(oData.servicio);
     })
     
   }

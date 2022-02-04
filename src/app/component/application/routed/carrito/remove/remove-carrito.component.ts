@@ -1,4 +1,4 @@
-import { ITipoProducto } from '../../../../../model/tipoproducto-interfaces';
+import { ITipoServicio } from '../../../../../model/tiposervicio-interfaces';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
