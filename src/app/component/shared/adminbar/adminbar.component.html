@@ -1,0 +1,71 @@
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+<div class="wrapper">
+  
+  <div class="top_navbar">
+    <div class="hamburger">
+       <!-- <div class="one"></div>
+       <div class="two"></div>
+       <div class="three"></div> -->
+    </div>
+    <div class="top_menu">
+      <div class="logo">
+        <a class="logo" href="#"><img src="assets/img/logo.png"></a>
+      </div>
+   
+    </div>
+  </div>
+  
+  <div class="sidebar">
+      <ul>
+        <li><a  [routerLink]="['/usuario/plist']">
+          <span class="icon"><i
+            ></i></span>
+          <span class="title">Usuarios</span>
+          </a></li>
+        <li><a  [routerLink]="['/tipousuario/plist']">
+          <span class="icon"><i
+            ></i></span>
+          <span class="title">Tipos de usuario</span>
+          </a></li>
+        <li><a [routerLink]="['/servicio/plist']">
+          <span class="icon"><i ></i></span>
+          <span class="title">Servicio</span>
+          </a></li>
+        <li><a [routerLink]="['/tiposervicio/plist']">
+          <span class="icon"><i ></i></span>
+          <span class="title">Tipos de Servicio</span>
+          </a></li>
+        <li><a [routerLink]="['/compra/plist']" >
+          <span class="icon"><i  ></i></span>
+          <span class="title">Compras</span>
+          </a></li>
+        <li><a  [routerLink]="['/factura/plist']">
+          <span class="icon"><i ></i></span>
+          <span class="title">Facturas</span>
+          </a></li>
+          <!-- <li><a [routerLink]="['/reports']">
+            <span class="icon"><i [ngClass]="oIconService.getIcon('informe')"></i></span>
+            <span class="title">Informes</span>
+            </a></li> -->
+          
+              <!-- <span class="nav-menu-item-admin"> <i [ngClass]="oIconService.getIcon('usuario')"></i>
+                {{oUsuarioSession.nombre + " " + oUsuarioSession.apellidos }}
+           </span> -->
+           <li><a  [routerLink]="['/carrito/plist']">
+            <span class="icon"><i ></i></span>
+            <span class="title">Listado de carritos</span>
+            </a></li>
+            
+            <li><a class="logout" [routerLink]="['/logout']">
+              <span class="icon"><i ></i></span>
+              <span class="title">Logout</span>
+              </a></li>
+             
+        
+    </ul>
+  </div>
+  
+ 
+  </div>
+

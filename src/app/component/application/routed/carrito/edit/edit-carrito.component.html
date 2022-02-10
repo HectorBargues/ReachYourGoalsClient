@@ -1,4 +1,5 @@
-<app-menu></app-menu>
+<app-adminbar></app-adminbar>
+<div class="res">
 
 <div class="container my-3">
   <app-header [title]="'Edición de ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)"
@@ -113,8 +114,8 @@
     </div>
   </div>
 </div>
+</div>
 
-<app-footer></app-footer>
 
 <app-modal [show]="eventsSubjectShowModalServicio.asObservable()" [size]="'xl'" [hide]="eventsSubjectHideModalServicio.asObservable()"
     (close)="closeModalServicio()" [mimodal]="'modalServicio'">

@@ -7,7 +7,7 @@ import { API_URL, environment, httpOptions } from 'src/environments/environment'
 
 import { catchError, retry, shareReplay, tap } from 'rxjs/operators';
 import { IPage, IPost } from '../model/model-interfaces';
-import { IPageUsuario, IUsuario, IUsuario2Send } from '../model/usuario-interfaces';
+import { IPageUsuario, IUsuario, IUsuario2Send, IUsuario3Send } from '../model/usuario-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +50,9 @@ export class UsuarioService {
   }
 
   newOne(oUsuario: IUsuario2Send): Observable<number> {
+    return this.http.post<number>(this.sURL + "/new", oUsuario, httpOptions);
+  }
+  register(oUsuario: IUsuario3Send): Observable<number> {
     return this.http.post<number>(this.sURL + "/new", oUsuario, httpOptions);
   }
 

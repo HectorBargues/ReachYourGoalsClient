@@ -5,6 +5,7 @@ import { API_URL, environment, httpOptions } from 'src/environments/environment'
 
 
 import { catchError, retry, shareReplay, tap } from 'rxjs/operators';
+import { IUsuario } from '../model/usuario-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +32,9 @@ export class SessionService {
     return throwError(errorMessage);
   }
 
-  login(loginData: String): Observable<String> {
+  login(loginData: String): Observable<IUsuario> {
     if (environment) console.log("SessionService: login");
-    return this.http.post<String>(this.sURL, loginData, httpOptions).pipe(
-      tap((u: String) => console.log("session.service login HTTP request executed", u)),
+    return this.http.post<IUsuario>(this.sURL, loginData, httpOptions).pipe(
       retry(1),
       catchError(this.handleError));
   }

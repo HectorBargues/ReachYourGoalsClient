@@ -39,6 +39,13 @@ import { RemoveCarritoComponent } from './component/application/routed/carrito/r
 import { GenerateComponent } from './component/shared/routed/generate/generate.component';
 import { ReportsComponent } from './component/shared/routed/reports/reports.component';
 import { SessionResolver } from './resolve/session.resolve';
+import { DashboardComponent } from './component/application/routed/dashboard/dashboard.component';
+import { BuscaComponent } from './component/application/routed/busca/busca.component';
+import { TiendaComponent } from './component/application/routed/tienda/tienda.component';
+import { ClasesComponent } from './component/application/routed/clases/clases.component';
+import { TarifasComponent } from './component/application/routed/tarifas/tarifas.component';
+import { AdminbarComponent } from './component/shared/adminbar/adminbar.component';
+import { RegisterComponent } from './component/shared/routed/register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, resolve: { message: SessionResolver } },
@@ -94,7 +101,14 @@ const routes: Routes = [
   { path: 'carrito/new', component: NewCarritoComponent, resolve: { message: SessionResolver } },
   { path: 'carrito/view/:id', component: ViewCarritoComponent, resolve: { message: SessionResolver } },
   { path: 'carrito/edit/:id', component: EditCarritoComponent, resolve: { message: SessionResolver } },
-  { path: 'carrito/remove/:id', component: RemoveCarritoComponent, resolve: { message: SessionResolver } }
+  { path: 'carrito/remove/:id', component: RemoveCarritoComponent, resolve: { message: SessionResolver } },
+  { path: 'dashboard', component: DashboardComponent, resolve: { message: SessionResolver } },
+  { path: 'busca', component: BuscaComponent, resolve: { message: SessionResolver } },
+  { path: 'tienda', component: TiendaComponent, resolve: { message: SessionResolver } },
+  { path: 'tarifas', component: TarifasComponent, resolve: { message: SessionResolver } },
+  { path: 'clases', component: ClasesComponent, resolve: { message: SessionResolver } },
+  { path: 'adminbar', component: AdminbarComponent, resolve: { message: SessionResolver } },
+  { path: 'register', component: RegisterComponent, resolve: { message: SessionResolver } },
 ];
 
 @NgModule({

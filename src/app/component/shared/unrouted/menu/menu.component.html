@@ -1,125 +1,96 @@
-<nav id="navbar" class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="assets/img/wildCartLogo100.png" width="30"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <small>
-                        <a id="reach" class="nav-link" [class.active]="strUrl=='/home'" aria-current="page"
-                            [routerLink]="['/home']">
-                            Reach Your <br> Goals</a>
-                    </small>
-                </li>
-               
-                <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
-                    <small>
-                        <a class="nav-link" [class.active]="strUrl=='/tipousuario/plist'"
-                            [routerLink]="['/tipousuario/plist']"><i
-                                [ngClass]="oIconService.getIcon('tipousuario')"></i> Tipos de Usuario</a>
-                    </small>
-                </li>
-                <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
-                    <small>
-                        <a class="nav-link" [class.active]="strUrl=='/servicio/plist'"
-                            [routerLink]="['/servicio/plist']"><i [ngClass]="oIconService.getIcon('servicio')"></i>
-                            Servicio</a>
-                    </small>
-                </li>
-                <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
-                    <small>
-                        <a class="nav-link" [class.active]="strUrl=='/tiposervicio/plist'"
-                            [routerLink]="['/tiposervicio/plist']"><i
-                                [ngClass]="oIconService.getIcon('tiposervicio')"></i> Tipos de Servicio</a>
-                    </small>
-                </li>
-                <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
-                    <small>
-                        <a class="nav-link" [class.active]="strUrl=='/compra/plist'" [routerLink]="['/compra/plist']"><i
-                                [ngClass]="oIconService.getIcon('compra')"></i> Compras</a>
-                    </small>
-                </li>
-                <li class="nav-item" *ngIf="oUsuarioSession">
-                    <small>
-                        <a class="nav-link" [class.active]="strUrl=='/factura/plist'"
-                            [routerLink]="['/factura/plist']"><i [ngClass]="oIconService.getIcon('factura')"></i>
-                            Facturas</a>
-                    </small>
-                </li>
 
+<nav class="nav-admin">
+    <a class="logo" href="#"><img src="assets/img/logo.png"></a>
+    
+            <!-- Navbar usuario -->
+            <ul class="nav-menu-user">
+      
+                     <li  class="nav-menu-item-user" *ngIf="oUsuarioSession?.tipousuario.id==2">
+                       
+                             <a  class="nav-link-user" [class.active]="strUrl=='/busca'" [routerLink]="['/busca']"> Busca un club</a>
+                       
+                     </li>
+                     <li  class="nav-menu-item-user" *ngIf="oUsuarioSession?.tipousuario.id==2">
+                        
+                             <a  class="nav-link-user" [class.active]="strUrl=='/tarifas'"
+                                 [routerLink]="['/tarifas']">
+                                 Tarifas</a>
+                      
+                     </li>
              
-                <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
-                    <small>
-                        <a class="nav-link" [class.active]="strUrl=='/reports'" [routerLink]="['/reports']"><i
-                                [ngClass]="oIconService.getIcon('informe')"></i> Informes</a>
-                    </small>
-                </li>
-                <li class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==1">
-                    <small>
-                        <a class="nav-link" [class.active]="strUrl=='/carrito/plist'"
-                            [routerLink]="['/carrito/plist']"><i [ngClass]="oIconService.getIcon('carrito')"></i>
-                            Listado de carritos</a>
-                    </small>
-                </li>
-            </ul>
-            <ul id="firstnav"  class="navbar-nav me-end mb-2 mb-lg-0">
+                  
+                     <li  class="nav-menu-item-user" *ngIf="oUsuarioSession?.tipousuario.id==2">
+                       
+                             <a  class="nav-link-user" [class.active]="strUrl=='/clases'" [routerLink]="['/clases']"> Clases</a>
+                         
+                     </li>
+                     <li  class="nav-menu-item-user" *ngIf="oUsuarioSession?.tipousuario.id==2">
+                         
+                             <a  class="nav-link-user" [class.active]="strUrl=='/tienda'"
+                                 [routerLink]="['/tienda']">
+                                 Tienda</a>
+                      
+                     </li>
+                 
+                     </ul>
+                        <!-- Navbar no log -->
+            <ul class="nav-menu-nolog">
                
-                <li  class="nav-link" *ngIf="oUsuarioSession ===null">
-                    <small>
-                        <a id="firstnav" class="nav-link" [class.active]="strUrl=='/compra/plist'" [routerLink]="['/compra/plist']"> Busca un club</a>
-                    </small>
+                <li  class="nav-menu-item-nolog" *ngIf="oUsuarioSession ===null">
+                 
+                        <a  class="nav-link-nolog" [class.active]="strUrl=='/busca'" [routerLink]="['/busca']"> Busca un club</a>
+                   
                 </li>
-                <li  class="nav-link" *ngIf="oUsuarioSession ===null">
-                    <small>
-                        <a id="firstnav" class="nav-link" [class.active]="strUrl=='/factura/plist'"
-                            [routerLink]="['/factura/plist']">
+                <li  class="nav-menu-item-nolog" *ngIf="oUsuarioSession ===null">
+                  
+                        <a  class="nav-link-nolog" [class.active]="strUrl=='/tarifas'"
+                            [routerLink]="['/tarifas']">
                             Tarifas</a>
-                    </small>
+                   
                 </li>
 
              
-                <li  class="nav-link" *ngIf="oUsuarioSession ===null">
-                    <small>
-                        <a id="firstnav" class="nav-link" [class.active]="strUrl=='/reports'" [routerLink]="['/reports']"> Clases</a>
-                    </small>
+                <li  class="nav-menu-item-nolog" *ngIf="oUsuarioSession ===null">
+                  
+                        <a  class="nav-link-nolog" [class.active]="strUrl=='/clases'" [routerLink]="['/clases']"> Clases</a>
+                   
                 </li>
-                <li  class="nav-link" *ngIf="oUsuarioSession ===null">
-                    <small>
-                        <a id="firstnav" class="nav-link" [class.active]="strUrl=='/carrito/plist'"
-                            [routerLink]="['/carrito/plist']"><i [ngClass]="oIconService.getIcon('carrito')"></i>
+                <li  class="nav-menu-item-nolog" *ngIf="oUsuarioSession ===null">
+                  
+                        <a  class="nav-link-nolog" [class.active]="strUrl=='/tienda'"
+                            [routerLink]="['/tienda']">
                             Tienda</a>
-                    </small>
+                 
                 </li>
+                <span class="nav-menu-item-admin" *ngIf="oUsuarioSession?.tipousuario.id==2">
+                
+                        <a  class="nav-link-admin" [class.active]="strUrl=='/carrito/plist'" [routerLink]="['/carrito/plist']"><i
+                                [ngClass]="oIconService.getIcon('carrito')"></i> {{tcarrito}}</a>
+                    
+                </span>
+    
+               
+    
+                <span class="nav-menu-item-admin" *ngIf="!oUsuarioSession">
+                   
+                        <a  class="nav-link-admin" [class.active]="strUrl=='/login'" [routerLink]="['/login']">Login</a>
+                 
+                </span>
+                <span class="nav-menu-item-admin" *ngIf="oUsuarioSession"> <i [ngClass]="oIconService.getIcon('usuario')"></i>
+                    {{oUsuarioSession.nombre + " " + oUsuarioSession.apellidos }}
+               </span>
+    
+                <span class="nav-menu-item-admin" *ngIf="oUsuarioSession">
+                  
+                        <a  class="nav-link-admin" [class.active]="strUrl=='/logout'" [routerLink]="['/logout']"><i
+                                [ngClass]="oIconService.getIcon('logout')"></i> Logout</a>
+                 
+                </span>
             </ul>
-
-            <span class="nav-item" *ngIf="oUsuarioSession?.tipousuario.id==2">
-                <small>
-                    <a id="reach" class="nav-link" [class.active]="strUrl=='/carrito/plist'" [routerLink]="['/carrito/plist']"><i
-                            [ngClass]="oIconService.getIcon('carrito')"></i> {{tcarrito}}</a>
-                </small>
-            </span>
-
-            <span class="navbar-text" *ngIf="oUsuarioSession"> <i [ngClass]="oIconService.getIcon('usuario')"></i>
-                <small> {{oUsuarioSession.nombre + " " + oUsuarioSession.apellidos }}</small>
-            </span>
-
-            <span class="navbar-text" *ngIf="!oUsuarioSession">
-                <small>
-                    <a id="reach" class="nav-link" [class.active]="strUrl=='/login'" [routerLink]="['/login']">Login</a>
-                </small>
-            </span>
-
-            <span class="navbar-text" *ngIf="oUsuarioSession">
-                <small>
-                    <a id="reach" class="nav-link" [class.active]="strUrl=='/logout'" [routerLink]="['/logout']"><i
-                            [ngClass]="oIconService.getIcon('logout')"></i> Logout</a>
-                </small>
-            </span>
-
-        </div>
-    </div>
+                 
+      
 </nav>
+
+
+    
+

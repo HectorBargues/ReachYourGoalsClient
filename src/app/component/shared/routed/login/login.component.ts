@@ -45,12 +45,25 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   onSubmit() {
-    const loginData = { login: this.formularioLogin.get('login')!.value, password: this.oCryptoService.getSHA256(this.formularioLogin.get('password')!.value) };
-    console.log("login:onSubmit: ", loginData);
-    this.oSessionService.login(JSON.stringify(loginData)).subscribe(data => {
-      localStorage.setItem("user", JSON.stringify(data.toString()));
+    const loginData = {
+      login: this.formularioLogin.get('login')!.value,
+      password: this.oCryptoService.getSHA256(
+        this.formularioLogin.get('password')!.value
+      ),
+    };
+    console.log('login:onSubmit: ', loginData);
+    this.oSessionService.login(JSON.stringify(loginData)).subscribe((data:IUsuario) => {
+      localStorage.setItem('user', JSON.stringify(data.toString()));
       if (data != null) {
-        this.oRouter.navigate(['/home']);
+        {
+          if (data.tipousuario.id === 1) {
+            this.oRouter.navigate(['/dashboard']);
+          } else {
+
+            this.oRouter.navigate(['/home']);
+
+          }
+        }
       } else {
         localStorage.clear();
       }

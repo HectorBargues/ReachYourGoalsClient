@@ -31,6 +31,8 @@ export class IconService {
       case strIcon == "imagen": return "fas fa-camera";
       case strIcon == "validado": return "fas fa-user-check";
       case strIcon == "activado": return "fas fa-flag-checkered";
+      case strIcon == "reloj": return "fa-solid fa-clock";
+      case strIcon == "user": return "fa-solid fa-chart-user";
       // 
       case strIcon == "acciones": return "fas fa-tools";
       case strIcon == "view": return "fas fa-eye";

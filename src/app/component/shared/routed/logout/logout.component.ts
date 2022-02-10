@@ -14,6 +14,7 @@ export class LogoutComponent implements OnInit {
   
   strOperation: string = "logout"
   oUserSession: IUsuario;
+  osesion: IUsuario;
 
   constructor(
     private oRoute: ActivatedRoute,
@@ -22,7 +23,7 @@ export class LogoutComponent implements OnInit {
     private _location: Location,
     public oIconService: IconService
   ) {
-
+    this.osesion = JSON.parse(localStorage.getItem("user"));
     if (this.oRoute.snapshot.data.message) {
       this.oUserSession = this.oRoute.snapshot.data.message;
       localStorage.setItem("user", JSON.stringify(this.oRoute.snapshot.data.message));

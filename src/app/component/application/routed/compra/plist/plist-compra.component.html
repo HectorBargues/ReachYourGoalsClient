@@ -1,5 +1,5 @@
-<app-menu></app-menu>
-
+<app-adminbar></app-adminbar>
+<div class="res">
 <div class="container my-3">
     <app-header [title]="'Listado de ' + strTitlePlural" [icon]="oIconService.getIcon(this.strOperation)" [iconEntity]="oIconService.getIcon(this.strEntity)" [filter]="strFilteredMessage" [subtitle]="nTotalElements + ' ' + strTitlePlural">
     </app-header>
@@ -208,5 +208,4 @@
     </div>
   </div>
 </div>
-
-<app-footer></app-footer>
+</div>

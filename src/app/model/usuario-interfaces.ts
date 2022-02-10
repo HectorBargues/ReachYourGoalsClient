@@ -32,3 +32,15 @@ export interface IUsuario2Send {
     activo: boolean,
     tipousuario: I2Send
 }
+export interface IUsuario3Send {
+    id: number,
+    dni: string,
+    nombre: string,
+    apellidos: string,
+    login: string,
+    password: string,
+    email: string,
+    validado: boolean,
+    activo: boolean,
+    
+}

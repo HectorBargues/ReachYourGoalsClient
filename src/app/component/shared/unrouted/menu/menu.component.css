@@ -1,10 +1,136 @@
-#navbar{
-    background-color:transparent;
+@font-face {
+  font-family: 'powermax-bold';
+  src: url(/wildCartAngularClient2021/src/assets/fonts/Powermax-Bold.otf) format("otf");
 }
-#reach{
-    color:white;
-    text-align: center;
-}
-#firstnav{
+/* Barra Admin */
+* {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  img{
+    width: 90px;
+  }
+
+  .nav-admin {
+    font-family: 'powermax-bold';
+    display: flex;
+    background-color:#090909; ;
+  color: white;
+    margin: 0 auto;
+    justify-content:center;
+  }
+ 
+  .nav-link-admin {
     color: white;
-}
+    text-decoration: none;
+  }
+  
+  .logo {
+  
+    font-weight: bold;
+    padding: 0 40px;
+    line-height: 80px;
+    justify-content:center;
+    margin-top: -0.35%;
+
+  }
+  
+  .nav-menu-admin {
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+  }
+  
+  .nav-menu-item-admin {
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 80px;
+    text-transform: uppercase;
+    width: max-content;
+  }
+
+  
+  
+  .nav-link-admin {
+    padding: 8px 12px;
+    border-radius: 3px;
+  }
+  
+  .nav-link-admin:hover,
+  .nav-link-admin_active {
+    background-color: #b80f22;
+    transition: 0.5s;
+  }
+  
+  /* TOGGLE */
+  .nav-toggle {
+
+   
+    font-size: 30px;
+     line-height: 60px;
+    cursor: pointer;
+    display: none;
+  }
+  /* Barra Usuario  */
+
+  .nav-link-user {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-menu-user {
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+  }
+  .nav-menu-item-user {
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 80px;
+    text-transform: uppercase;
+    width: max-content;
+  }
+
+  
+  
+  .nav-link-user {
+    padding: 8px 12px;
+    border-radius: 3px;
+  }
+  
+  .nav-link-user:hover,
+  .nav-link-user_active {
+    background-color: #b80f22;
+    transition: 0.5s;
+  }
+   /* Barra Nolog  */
+   .nav-link-nolog {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .nav-menu-nolog {
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+  }
+  .nav-menu-item-nolog {
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 80px;
+    text-transform: uppercase;
+    width: max-content;
+  }
+
+  
+  
+  .nav-link-nolog {
+    padding: 8px 12px;
+    border-radius: 3px;
+  }
+  
+  .nav-link-nolog:hover,
+  .nav-link-nolog_active {
+    background-color: #b80f22;
+    transition: 0.5s;
+  }

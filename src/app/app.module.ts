@@ -76,6 +76,15 @@ import { ServicioPlistUnroutedComponent } from './component/application/unrouted
 import { FacturaPlistUnroutedComponent } from './component/application/unrouted/factura/plist/factura-plist-unrouted.component';
 import { TipousuarioPlistUnroutedComponent } from './component/application/unrouted/tipousuario/plist/tipousuario-plist-unrouted.component';
 import { ServicioCPlistUnroutedComponent } from './component/application/unrouted/servicio/cplist/servicio-cplist-unrouted.component';
+import { DashboardComponent } from './component/application/routed/dashboard/dashboard.component';
+import { BuscaComponent } from './component/application/routed/busca/busca.component';
+import { TiendaComponent } from './component/application/routed/tienda/tienda.component';
+import { ClasesComponent } from './component/application/routed/clases/clases.component';
+import { TarifasComponent } from './component/application/routed/tarifas/tarifas.component';
+import { AdminbarComponent } from './component/shared/adminbar/adminbar.component';
+import { RegisterComponent } from './component/shared/routed/register/register.component';
+
+
 
 @NgModule({
   declarations: [
@@ -154,6 +163,15 @@ import { ServicioCPlistUnroutedComponent } from './component/application/unroute
     TipousuarioPlistUnroutedComponent,
 
     ServicioCPlistUnroutedComponent,
+      DashboardComponent,
+      BuscaComponent,
+      TiendaComponent,
+      ClasesComponent,
+      TarifasComponent,
+      AdminbarComponent,
+      RegisterComponent,
+     
+    
   ],
   imports:[ 
 

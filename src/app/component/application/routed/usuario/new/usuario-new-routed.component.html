@@ -1,5 +1,5 @@
-<app-menu></app-menu>
-
+<app-adminbar></app-adminbar>
+<div class="res">
 <div class="container my-3">
 
     <app-header [title]="'Nuevo ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)" [iconEntity]="oIconService.getIcon(this.strEntity)">
@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <label for="apellido1" class="col-sm-2 col-form-label">Apellidos</label>
+                <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
                 <div class="col-sm-10">
                     <div class="row mb-3">
                         <div class="col-sm-10">
@@ -121,8 +121,8 @@
 
     </div>
 </div>
+</div>
 
-<app-footer></app-footer>
 <app-modal [show]="eventsSubjectShowModal.asObservable()" [size]="'xl'" [hide]="eventsSubjectHideModal.asObservable()" (close)="onCloseModal()">
     <app-tipousuario-plist-unrouted [mode]="false" (selection)="onSelection($event)">
         <header></header>

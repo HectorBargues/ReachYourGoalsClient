@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IPage, IPost } from 'src/app/model/model-interfaces';
 import { IUsuario } from 'src/app/model/usuario-interfaces';
+import { IconService } from 'src/app/service/icon.service';
 import { PaginationService } from 'src/app/service/pagination.service';
 import { PostService } from 'src/app/service/post.service';
 
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
     private oActivatedRoute: ActivatedRoute,
     private oPaginationService: PaginationService,
     private oPostService: PostService,
+    public oIconService: IconService,
   ) {
 
 

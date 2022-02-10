@@ -1,5 +1,6 @@
-<app-menu></app-menu>
-
+<app-adminbar *ngIf="osesion?.tipousuario?.id==1"></app-adminbar>
+<app-menu *ngIf="osesion?.tipousuario.id==2"></app-menu>
+<div class="res">
 <div class="container my-3">
 
     <app-header [title]="'Salida del sistema'" [icon]="oIconService.getIcon(this.strOperation)"></app-header>
@@ -29,5 +30,4 @@
     </div>
 
 </div>
-
-<app-footer></app-footer>
+</div>

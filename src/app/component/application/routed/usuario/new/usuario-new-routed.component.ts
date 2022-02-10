@@ -69,7 +69,7 @@ export class UsuarioNewRoutedComponent implements OnInit {
         id: null,
         nombre: this.oForm.value.nombre,
         dni: this.oForm.value.dni,
-        apellidos: this.oForm.value.apellido1,
+        apellidos: this.oForm.value.apellidos,
         login: this.oForm.value.login,
         email: this.oForm.value.email,
         validado: true,
