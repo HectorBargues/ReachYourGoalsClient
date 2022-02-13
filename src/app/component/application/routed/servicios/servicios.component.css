@@ -1,6 +1,163 @@
+
 .botonfiltro{
     background-color: aquamarine;
 }
 .res{
     margin: 3%;
 }
+#paginacion{
+    background-color: #090909;
+}
+.pagelink{
+    background-color: #090909;
+}
+.botonera {
+	margin: 27px auto 0;
+    font-family: 'powermax-bold';
+	position: relative;
+	width: 590px;
+	height: 50px;
+	background-color: #090909;
+	border-radius: 8px;
+	font-size: 0;
+}
+.anav{
+	line-height: 50px;
+	height: 100%;
+	font-size: 13px;
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	color: white;
+	cursor: pointer;
+}
+nav .animation {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	z-index: 0;
+	transition: all .5s ease 0s;
+	border-radius: 8px;
+}
+.anav:nth-child(1) {
+	width: 190px;
+}
+.anav:nth-child(2) {
+	width: 190px;
+}
+.anav:nth-child(3) {
+	width: 210px;
+}
+/* .anav:nth-child(4) {
+	width: 160px;
+}
+.anav:nth-child(5) {
+	width: 120px;
+} */
+nav .start-home, a:nth-child(1):hover~.animation {
+	width: 190px;
+	left: 0;
+	background-color: #C1121F;
+}
+nav .start-about, a:nth-child(2):hover~.animation {
+	width: 190px;
+	left: 190px;
+	background-color: #C1121F;
+}
+nav .start-blog, a:nth-child(3):hover~.animation {
+	width: 190px;
+	left: 400px;
+	background-color: #C1121F;
+}
+/* nav .start-portefolio, a:nth-child(4):hover~.animation {
+	width: 160px;
+	left: 310px;
+	background-color: #C1121F;
+}
+nav .start-contact, a:nth-child(5):hover~.animation {
+	width: 120px;
+	left: 470px;
+	background-color: #C1121F;
+} */
+nav .start-contact, a:nth-child(5):active {
+	
+	background-color: #C1121F;
+}
+nav .start-contact, a:nth-child(4):active {
+	
+	background-color: #C1121F;
+}
+nav .start-contact, a:nth-child(3):active {
+	
+	background-color: #C1121F;
+}
+/* nav .start-contact, a:nth-child(2):active {
+	
+	background-color: #C1121F;
+}
+nav .start-contact, a:nth-child(1):active {
+	
+	background-color: #C1121F;
+} */
+
+
+#container{
+	box-shadow: 0 15px 30px 1px grey;
+	background: rgba(255, 255, 255, 0.90);
+	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 5em auto;
+	height: 350px;
+	width: 700px;
+  
+	
+}
+
+
+
+.product-details {
+	position: relative;
+	text-align: left;
+	overflow: hidden;
+	padding: 30px;
+	height: 100%;
+	float: left;
+	width: 40%;
+
+}
+
+#container .product-details h1{
+	font-family: 'Bebas Neue', cursive;
+	display: inline-block;
+	position: relative;
+	font-size: 30px;
+	color: #344055;
+	margin: 0;
+	
+}
+
+#container .product-details > p {
+font-family: 'EB Garamond', serif;
+	text-align: center;
+	font-size: 18px;
+	color: #7d7d7d;
+	
+}
+
+.product-image {
+	transition: all 0.3s ease-out;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	float: right;
+	width: 45%;
+	display: inline-block;
+}
+
+#container img {width: 100%;height: 100%;}
+
