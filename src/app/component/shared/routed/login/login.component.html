@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 
-    <div class="divlogin">
-            <!-- <img src="assets/img/fondo.jpg"> -->
+    <!--<div class="divlogin">
+             <img src="assets/img/fondo.jpg"> 
         <div  class="divform">
                 <form id="formlogin" [formGroup]="formularioLogin" (ngSubmit)="onSubmit()">
                     <img class="imgform" src="assets/img/logog.png" alt="">
@@ -38,5 +38,36 @@
 
         </div>
 
-    </div>
-   
+    </div>  -->
+    
+   <div class="res">
+    <!-- <img src="assets/img/img.jpg">  -->
+<div class="container" id="container">
+    
+	<div class="form-container sign-in-container">
+		<form action="#" id="formlogin" [formGroup]="formularioLogin" (ngSubmit)="onSubmit()">
+			<h1 class="login">Login</h1>
+			<div class="social-container">
+			
+			</div>
+			
+			<input type="text" placeholder="Nombre de usuario" formControlName="login" />
+			<input type="password" placeholder="Contraseña" formControlName="password" />
+			<button type="submit" class="boton">Login</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+		
+			<div class="overlay-panel overlay-right">
+				<h1 class="registro">Se uno de los nuestros</h1>
+				<p>Introduce tus datos personales y empieza a entrenar con nosotros</p>
+				<button [routerLink]="['/register']" class="ghostr" id="signUp">Registtrate!!</button>
+			</div>
+		</div>
+	</div>
+
+</div>
+</div>
+
+<app-footer></app-footer>

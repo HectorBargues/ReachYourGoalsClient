@@ -1,0 +1,22 @@
+<div class="row justify-content-center">
+    <div class="col-md table-responsive-md">
+        <table  id="myTable" class="table table-bordered table-striped table-hover">
+            <tbody>
+                <tr *ngFor="let fila of oejercicioapi">
+                    <td>{{fila.bodyPart}}</td>
+                    <td><img src="{{fila.gifUrl}}"></td>
+                    <td>{{fila.equipment}}</td>
+                    <td>{{fila.id}}</td>
+                    <td>{{fila.name}}</td>
+                    <td>{{fila.target}}</td>
+                   
+
+
+
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,20 +1,20 @@
-import { ServicioService } from '../../../../../service/servicio.service';
-import { IPageServicio, IServicio } from 'src/app/model/servicio-interfaces';
 import { Component, ContentChild, EventEmitter, Input, OnInit, Output, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { PaginationService } from 'src/app/service/pagination.service';
-import { IconService } from 'src/app/service/icon.service';
-import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { debounceTime } from 'rxjs/operators';
+import { IPageServicio, IServicio } from 'src/app/model/servicio-interfaces';
+import { IUsuario } from 'src/app/model/usuario-interfaces';
+import { IconService } from 'src/app/service/icon.service';
+import { PaginationService } from 'src/app/service/pagination.service';
+import { PostService } from 'src/app/service/post.service';
+import { ServicioService } from 'src/app/service/servicio.service';
 
 @Component({
-  selector: 'app-servicio-cplist-unrouted',
-  templateUrl: './servicio-cplist-unrouted.component.html',
-  styleUrls: ['./servicio-cplist-unrouted.component.css']
+  selector: 'app-servicios',
+  templateUrl: './servicios.component.html',
+  styleUrls: ['./servicios.component.css']
 })
-export class ServicioCPlistUnroutedComponent implements OnInit {
-
+export class ServiciosComponent implements OnInit {
   @Input() id_tipousuario_session: number = null;
   @Input() id_tiposervicio: number = null;
   @Input() mode: boolean = true; //true=edición; false=selección
@@ -39,10 +39,6 @@ export class ServicioCPlistUnroutedComponent implements OnInit {
   oUserSession: IUsuario;
   subjectFiltro$ = new Subject();
   barraPaginacion: string[];
-
-
-
-
   constructor(
     private oRoute: ActivatedRoute,
     private oRouter: Router,
@@ -50,15 +46,9 @@ export class ServicioCPlistUnroutedComponent implements OnInit {
     private oServicioService: ServicioService,
 
     public oIconService: IconService
-  ) {
-
-    if (this.oRoute.snapshot.data.message) {
-      this.oUserSession = this.oRoute.snapshot.data.message;
-      localStorage.setItem("user", JSON.stringify(this.oRoute.snapshot.data.message));
-    } else {
-      localStorage.clear();
-      oRouter.navigate(['/home']);
-    }
+  ) { 
+ 
+   
     this.id_tiposervicio = this.oRoute.snapshot.params.id_tiposervicio;
     if (this.id_tiposervicio) {
       this.strFilteredMessage = "Listado filtrado por el tipo de servicio " + this.id_tiposervicio;
@@ -74,12 +64,11 @@ export class ServicioCPlistUnroutedComponent implements OnInit {
     this.subjectFiltro$.pipe(
       debounceTime(1000)
     ).subscribe(() => this.getPage());
-  }
 
+  }
   addCarrito(id_servicio:number){
 
   }
-
   getPage = () => {
     console.log("buscando...", this.strFilter);
     this.oServicioService.getPage(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, this.id_tiposervicio).subscribe((oPage: IPageServicio) => {
@@ -93,16 +82,15 @@ export class ServicioCPlistUnroutedComponent implements OnInit {
       this.nTotalPages = oPage.totalPages;
       this.aPaginationBar = this.oPaginationService.pagination(this.nTotalPages, this.nPage);
     })
-
   }
-filtrointensidad (id:number) {
-  this.oServicioService.getPage(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, id).subscribe((data:IPageServicio)=>{
-    this.aServicios=data.content;
-    this.nTotalPages = data.totalPages;
-    this.nTotalElements = data.totalElements;
-    this.aPaginationBar = this.oPaginationService.pagination(this.nTotalPages, this.nPage);
-  })
-}
+  filtrointensidad (id:number) {
+    this.oServicioService.getPage(this.nPageSize, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, id).subscribe((data:IPageServicio)=>{
+      this.aServicios=data.content;
+      this.nTotalPages = data.totalPages;
+      this.nTotalElements = data.totalElements;
+      this.aPaginationBar = this.oPaginationService.pagination(this.nTotalPages, this.nPage);
+    })
+  }
 
 
   jumpToPage = () => {
@@ -135,5 +123,4 @@ filtrointensidad (id:number) {
     console.log("selection plist emite " + id);
     this.selection.emit(id);
   }
-
 }

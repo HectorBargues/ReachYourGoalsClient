@@ -13,7 +13,7 @@
         </form>
     </div>
     <div class="col-md text-end">
-        <h4 class="text-muted">{{nTotalElements}} {{strTitlePlural}}</h4>
+        <h4 class="">{{nTotalElements}} {{strTitlePlural}}</h4>
     </div>
 </div>
 
@@ -22,7 +22,7 @@
         <nav aria-label="pagination">
             <ul class="pagination">
                 <li class="page-item" aria-current="page" *ngFor="let p of barraPaginacion" [ngClass]="{'active': (page+'' == p)}">
-                    <a class="page-link" (click)="page=(+p);jumpToPage()" href="#">{{p}}</a>
+                    <a id="pagelink" class="page-link" (click)="page=(+p);jumpToPage()" href="#">{{p}}</a>
                 </li>
             </ul>
         </nav>
@@ -36,7 +36,7 @@
 
     <div class="col-md text-end">
         <div class="dropdown mb-3">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
         Registros por página: {{pageSize}}
       </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -98,14 +98,14 @@
                         <i class="fas fa-arrow-down" *ngIf="currentSortField=='tipousuario'&&currentSortDirection=='desc'"></i>
 
                     </th>
-                    <th><i [ngClass]="oIconService.getIcon('validado')"></i> Validado</th>
-                    <th><i [ngClass]="oIconService.getIcon('activado')"></i> Activado</th>
+                    <!-- <th><i [ngClass]="oIconService.getIcon('validado')"></i> Validado</th>
+                    <th><i [ngClass]="oIconService.getIcon('activado')"></i> Activado</th> -->
                     <th><i [ngClass]="oIconService.getIcon('acciones')"></i> Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let fila of aPosts" class="align-middle">
-                    <td class="text-end">{{fila.id}}</td>
+                    <td class="">{{fila.id}}</td>
                     <td>{{fila.dni}}</td>
                     <td>{{fila.nombre}}</td>
                     <td>{{fila.apellidos}}</td>
@@ -125,7 +125,7 @@
             </button>
                         <button *ngIf="mode && fila.facturas>0" class="btn btn-outline-secondary btn-sm" [routerLink]="['/factura/plist/usuario/' + fila.id]">
               {{ fila.facturas }}
-              <i [ngClass]="oIconService.getIcon('factura')"></i>
+              <i class="botonfactura" [ngClass]="oIconService.getIcon('factura')"></i>
             </button>
                     </td>
 
@@ -135,8 +135,8 @@
               {{fila.tipousuario.nombre | trim:7}}</button>
                     </td>
 
-                    <td class="text-center" [innerHTML]="fila.validado | showBoolean"></td>
-                    <td class="text-center" [innerHTML]="fila.activo | showBoolean"></td>
+                    <!-- <td class="text-center" [innerHTML]="fila.validado | showBoolean"></td>
+                    <td class="text-center" [innerHTML]="fila.activo | showBoolean"></td> -->
                     <td class="text-center">
                         <div class="btn-group btn-group-sm" role="group" *ngIf="!mode">
                             <button type="button" class="btn btn-success" (click)="onSelection(fila.id)"><i

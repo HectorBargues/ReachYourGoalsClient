@@ -12,23 +12,19 @@
                      </li>
                      <li  class="nav-menu-item-user" *ngIf="oUsuarioSession?.tipousuario.id==2">
                         
-                             <a  class="nav-link-user" [class.active]="strUrl=='/tarifas'"
-                                 [routerLink]="['/tarifas']">
-                                 Tarifas</a>
+                             <a  class="nav-link-user" [class.active]="strUrl=='/servicios'"
+                                 [routerLink]="['/servicios']">
+                                 Servicios</a>
                       
                      </li>
              
                   
-                     <li  class="nav-menu-item-user" *ngIf="oUsuarioSession?.tipousuario.id==2">
-                       
-                             <a  class="nav-link-user" [class.active]="strUrl=='/clases'" [routerLink]="['/clases']"> Clases</a>
-                         
-                     </li>
+                   
                      <li  class="nav-menu-item-user" *ngIf="oUsuarioSession?.tipousuario.id==2">
                          
-                             <a  class="nav-link-user" [class.active]="strUrl=='/tienda'"
-                                 [routerLink]="['/tienda']">
-                                 Tienda</a>
+                             <a  class="nav-link-user" [class.active]="strUrl=='/myfit'"
+                                 [routerLink]="['/myfit']">
+                                 MyFit</a>
                       
                      </li>
                  
@@ -41,25 +37,21 @@
                         <a  class="nav-link-nolog" [class.active]="strUrl=='/busca'" [routerLink]="['/busca']"> Busca un club</a>
                    
                 </li>
-                <li  class="nav-menu-item-nolog" *ngIf="oUsuarioSession ===null">
-                  
-                        <a  class="nav-link-nolog" [class.active]="strUrl=='/tarifas'"
-                            [routerLink]="['/tarifas']">
-                            Tarifas</a>
-                   
+                <li  class="nav-menu-item-user" *ngIf="!oUsuarioSession">
+                        
+                        <a  class="nav-link-user" [class.active]="strUrl=='/servicios'"
+                            [routerLink]="['/servicios']">
+                            Servicios</a>
+                 
                 </li>
-
+        
              
-                <li  class="nav-menu-item-nolog" *ngIf="oUsuarioSession ===null">
-                  
-                        <a  class="nav-link-nolog" [class.active]="strUrl=='/clases'" [routerLink]="['/clases']"> Clases</a>
-                   
-                </li>
-                <li  class="nav-menu-item-nolog" *ngIf="oUsuarioSession ===null">
-                  
-                        <a  class="nav-link-nolog" [class.active]="strUrl=='/tienda'"
-                            [routerLink]="['/tienda']">
-                            Tienda</a>
+              
+                <li  class="nav-menu-item-user" *ngIf="!oUsuarioSession">
+                    
+                        <a  class="nav-link-user" [class.active]="strUrl=='/myfit'"
+                            [routerLink]="['/myfit']">
+                            MyFit</a>
                  
                 </li>
                 <span class="nav-menu-item-admin" *ngIf="oUsuarioSession?.tipousuario.id==2">

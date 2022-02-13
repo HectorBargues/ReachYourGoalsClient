@@ -13,7 +13,7 @@
         </form>
     </div>
     <div class="col-md text-end">
-        <h4 class="text-muted">{{nTotalElements}} {{strTitlePlural}}</h4>
+        <h4 class="">{{nTotalElements}} {{strTitlePlural}}</h4>
     </div>
 </div>
 
@@ -36,7 +36,7 @@
 
     <div class="col-md text-end">
         <div class="dropdown mb-3">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
         Registros por página: {{nPageSize}}
       </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -59,20 +59,27 @@
                         <i [ngClass]="oIconService.getIcon('flechaDown')" *ngIf="strSortField=='id'&&strSortDirection=='desc'"></i>
 
                     </th>
-                    <th (click)="doSetOrder('codigo')">
-                        <i [ngClass]="oIconService.getIcon('codigo')"></i> Código
-                        <i [ngClass]="oIconService.getIcon('flechaUp')" *ngIf="strSortField=='codigo'&&strSortDirection=='asc'"></i>
-                        <i [ngClass]="oIconService.getIcon('flechaDown')" *ngIf="strSortField=='codigo'&&strSortDirection=='desc'"></i>
-
-                    </th>
                     <th (click)="doSetOrder('nombre')">
                         <i [ngClass]="oIconService.getIcon('nombre')"></i> Nombre
                         <i [ngClass]="oIconService.getIcon('flechaUp')" *ngIf="strSortField=='nombre'&&strSortDirection=='asc'"></i>
                         <i [ngClass]="oIconService.getIcon('flechaDown')" *ngIf="strSortField=='nombre'&&strSortDirection=='desc'"></i>
 
                     </th>
+                    <th (click)="doSetOrder('descripcion')">
+                        <i [ngClass]="oIconService.getIcon('nombre')"></i> Descripcion
+                        <i [ngClass]="oIconService.getIcon('flechaUp')" *ngIf="strSortField=='descripcion'&&strSortDirection=='asc'"></i>
+                        <i [ngClass]="oIconService.getIcon('flechaDown')" *ngIf="strSortField=='descripcion'&&strSortDirection=='desc'"></i>
+
+                    </th>
+                    <th (click)="doSetOrder('codigo')">
+                        <i [ngClass]="oIconService.getIcon('codigo')"></i> Duración
+                        <i [ngClass]="oIconService.getIcon('flechaUp')" *ngIf="strSortField=='codigo'&&strSortDirection=='asc'"></i>
+                        <i [ngClass]="oIconService.getIcon('flechaDown')" *ngIf="strSortField=='codigo'&&strSortDirection=='desc'"></i>
+
+                    </th>
+                   
                     <th (click)="doSetOrder('existencias')">
-                        <i [ngClass]="oIconService.getIcon('cantidad')"></i> Existencias
+                        <i [ngClass]="oIconService.getIcon('cantidad')"></i> Monitores
                         <i [ngClass]="oIconService.getIcon('flechaUp')" *ngIf="strSortField=='existencias'&&strSortDirection=='asc'"></i>
                         <i [ngClass]="oIconService.getIcon('flechaDown')" *ngIf="strSortField=='existencias'&&strSortDirection=='desc'"></i>
 
@@ -111,11 +118,13 @@
             <tbody>
                 <tr *ngFor="let fila of aServicios" class="align-middle">
                     <td class="text-end">{{fila.id}}</td>
-                    <td>{{fila.codigo}}</td>
+                    
                     <td>{{fila.nombre| trim:60}}</td>
+                    <td>{{fila.descripcion| trim:60}}</td>
+                    <td>{{fila.codigo}}m</td>
                     <td style="text-align: center;">{{fila.existencias}}</td>
                     <td style="text-align: right;">{{fila.precio}}€</td>
-                    <td style="text-align: center;">({{fila.imagen}}) <img [src]="'http://localhost:8082/file/' + fila.imagen" style="height:40px" class="my-3" /></td>
+                    <td style="text-align: center;">({{fila.imagen}}) <img [src]="'http://localhost:8082/file/' + fila.imagen" style="height:100px" class="my-3" /></td>
                     <td style="text-align: center;">
                         <button class="btn btn-outline-secondary btn-sm" [routerLink]="['/compra/plist/servicio',fila.id]">{{fila?.compras}}
               <i [ngClass]="oIconService.getIcon('compra')"></i></button>

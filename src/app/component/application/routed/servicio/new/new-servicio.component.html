@@ -10,15 +10,7 @@
 
         <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
 
-            <div class="row mb-3">
-                <label for="codigo" class="col-sm-2 col-form-label">Código</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="codigo" formControlName="codigo" [ngClass]="{'is-valid' : f.codigo.dirty && !(f.codigo.errors?.required || f.codigo.errors?.minlength) }">
-                    <div *ngIf="f.codigo.dirty && f.codigo.errors?.required" class="text-danger">
-                        Se debe introducir un código
-                    </div>
-                </div>
-            </div>
+          
 
             <div class="row mb-3">
                 <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
@@ -29,6 +21,27 @@
                     </div>
                     <div *ngIf="f.nombre.dirty && f.nombre.errors?.minlength" class="text-danger">
                         El nombre introducido es demasiado corto
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="descripcion" class="col-sm-2 col-form-label">Descripcion</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="descripcion" formControlName="descripcion" [ngClass]="{'is-valid' : f.descripcion.dirty && !(f.descripcion.errors?.required || f.descripcion.errors?.minlength) }">
+                    <div *ngIf="f.descripcion.dirty && f.descripcion.errors?.required" class="text-danger">
+                        Se debe introducir una descripcion
+                    </div>
+                    <div *ngIf="f.descripcion.dirty && f.descripcion.errors?.minlength" class="text-danger">
+                        La descripcion introducida es demasiado corta
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="codigo" class="col-sm-2 col-form-label">Duracion</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="codigo" formControlName="codigo" [ngClass]="{'is-valid' : f.codigo.dirty && !(f.codigo.errors?.required || f.codigo.errors?.minlength) }">
+                    <div *ngIf="f.codigo.dirty && f.codigo.errors?.required" class="text-danger">
+                        Se debe introducir una duracion
                     </div>
                 </div>
             </div>
@@ -52,7 +65,10 @@
             <div class="row mb-3">
                 <label for="imagen" class="col-sm-2 col-form-label">Imagen</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="imagen" formControlName="imagen">
+                    <input formControlName="imagen"#imageInput type="file" accept="image/*" class="form-control-file mt-4" lang="es"
+      name="imagen" (change)="processFile($event)" />
+      <div><img [src]="imageSrc" *ngIf="imageSrc != null" alt="" style="height:100px" class="my-3" /></div>
+  <div><img *ngIf="imageSrc == null" [src]="'http://localhost:8082/file/' + oServshow?.imagen" style="height:100px" class="my-3" /></div>
                 </div>
             </div>
 

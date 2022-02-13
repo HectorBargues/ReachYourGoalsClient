@@ -41,11 +41,13 @@ import { ReportsComponent } from './component/shared/routed/reports/reports.comp
 import { SessionResolver } from './resolve/session.resolve';
 import { DashboardComponent } from './component/application/routed/dashboard/dashboard.component';
 import { BuscaComponent } from './component/application/routed/busca/busca.component';
-import { TiendaComponent } from './component/application/routed/tienda/tienda.component';
-import { ClasesComponent } from './component/application/routed/clases/clases.component';
-import { TarifasComponent } from './component/application/routed/tarifas/tarifas.component';
+
 import { AdminbarComponent } from './component/shared/adminbar/adminbar.component';
 import { RegisterComponent } from './component/shared/routed/register/register.component';
+import { MyfitComponent } from './component/application/routed/myfit/myfit.component';
+import { ServiciosComponent } from './component/application/routed/servicios/servicios.component';
+import { DietasComponent } from './component/application/routed/dietas/dietas.component';
+import { EjerciciosComponent } from './component/application/routed/ejercicios/ejercicios.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, resolve: { message: SessionResolver } },
@@ -104,11 +106,14 @@ const routes: Routes = [
   { path: 'carrito/remove/:id', component: RemoveCarritoComponent, resolve: { message: SessionResolver } },
   { path: 'dashboard', component: DashboardComponent, resolve: { message: SessionResolver } },
   { path: 'busca', component: BuscaComponent, resolve: { message: SessionResolver } },
-  { path: 'tienda', component: TiendaComponent, resolve: { message: SessionResolver } },
-  { path: 'tarifas', component: TarifasComponent, resolve: { message: SessionResolver } },
-  { path: 'clases', component: ClasesComponent, resolve: { message: SessionResolver } },
+
   { path: 'adminbar', component: AdminbarComponent, resolve: { message: SessionResolver } },
   { path: 'register', component: RegisterComponent, resolve: { message: SessionResolver } },
+  
+  { path: 'servicios', component: ServiciosComponent, resolve: { message: SessionResolver } },
+  { path: 'myfit', component: MyfitComponent, resolve: { message: SessionResolver } },
+  { path: 'ejercicios', component: EjerciciosComponent, resolve: { message: SessionResolver } },
+  { path: 'dietas', component: DietasComponent, resolve: { message: SessionResolver } },
 ];
 
 @NgModule({
