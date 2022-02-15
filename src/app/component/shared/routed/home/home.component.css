@@ -26,7 +26,7 @@ img{
       height: 400px;
       overflow: hidden;
       position: absolute;
-      top: 95%;
+      top: 90%;
     right: 0;
     bottom: 0;
     left: 70%;
@@ -86,7 +86,7 @@ img{
   
 }.seccionfilas{
     
-    background-color: #090909;
+    background-color: #111111;
     color: #ffffff;
     height: 850px;
     padding-left: 10%;

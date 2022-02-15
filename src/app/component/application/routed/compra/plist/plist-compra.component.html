@@ -32,13 +32,13 @@
             </nav>
         </div>
         <div class="col-md text-center">
-            <a [routerLink]="['/compra/new/']" type="button" class="btn btn-success mb-2">
+            <a [routerLink]="['/compra/new/']" type="button" class="btn btn-dark mb-2">
                 <i [ngClass]="oIconService.getIcon('new')"></i> Añadir nuevo {{ strTitleSingular }}
             </a>
         </div>
         <div class="col-md text-end">
             <div class="dropdown mb-3">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
           <i [ngClass]="oIconService.getIcon('rpp')"></i> Registros por página:
           {{ nPageSize }}
         </button>

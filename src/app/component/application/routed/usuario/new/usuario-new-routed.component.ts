@@ -159,6 +159,6 @@ export class UsuarioNewRoutedComponent implements OnInit {
   }
 
   onClosePopup(): void {
-    this.oRouter.navigate([this.strEntity + '/view/' + this.id]);
+   
   }
 }

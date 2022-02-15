@@ -56,13 +56,13 @@
       <button
         class="btn btn-primary dropdown-toggle"
         type="button"
-        id="dropdownMenuButton1"
+        id="dropdownMenuButton"
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
         Registros por página: {{ pageSize }}
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li>
           <a class="dropdown-item" (click)="pageSize = 10; getPage()">10</a>
         </li>

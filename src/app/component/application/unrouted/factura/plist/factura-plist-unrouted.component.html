@@ -9,16 +9,16 @@
         </nav>
     </div>
     <div class="col-md text-center">
-        <a [routerLink]="['/factura/new']" type="button" class="btn btn-success mb-2">
+        <a [routerLink]="['/factura/new']" type="button" class="btn btn-dark mb-2">
             <i class="fas fa-plus"></i> Añadir nueva Factura
         </a>
     </div>
     <div class="col-md text-end">
         <div class="dropdown mb-3">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 Registros por página: {{pageSize}}
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" (click)="pageSize=10;getPage()">10</a></li>
                 <li><a class="dropdown-item" (click)="pageSize=50;getPage()">50</a></li>
                 <li><a class="dropdown-item" (click)="pageSize=100;getPage()">100</a></li>
