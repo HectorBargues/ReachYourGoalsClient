@@ -67,13 +67,13 @@ export class EditServicioComponent implements OnInit {
       this.oServicio2Show = oData;
       this.oForm = this.oFormBuilder.group({
         id: [this.oServicio2Show.id],
-        codigo: [this.oServicio2Show.codigo, [Validators.required],],
-        nombre: [this.oServicio2Show.nombre, [Validators.required, Validators.minLength(5)],],
-        descripcion: [this.oServicio2Show.descripcion, [Validators.required, Validators.minLength(5)],],
+        codigo: [this.oServicio2Show.codigo, ,],
+        nombre: [this.oServicio2Show.nombre,,],
+        descripcion: [this.oServicio2Show.descripcion, ,],
         existencias: this.oServicio2Show.existencias,
         precio: this.oServicio2Show.precio,
         imagen: this.oServicio2Show.imagen,
-        tiposervicio: [this.oServicio2Show.tiposervicio.id, [Validators.required],],
+        tiposervicio: [this.oServicio2Show.tiposervicio.id, ,],
       });
     });
   };
@@ -164,7 +164,7 @@ export class EditServicioComponent implements OnInit {
   }
 
   onClosePopup(): void {
-    this.oRouter.navigate([this.strEntity + '/view/' + this.id]);
+   
   }
 
 }

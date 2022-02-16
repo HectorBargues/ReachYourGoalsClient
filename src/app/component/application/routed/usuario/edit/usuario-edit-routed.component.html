@@ -2,133 +2,81 @@
 <div class="res">
 <div class="container my-3">
 
-    <app-header [title]="'Edición de ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)" [iconEntity]="oIconService.getIcon(this.strEntity)">
-    </app-header>
+   
 
     <div class="row justify-content-center">
 
-        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()" *ngIf="oForm">
-
-            <div class="row mb-3">
-
-                <label for="id" class="col-sm-2 col-form-label">Id</label>
-                <div class="col-sm-10">
-                    <div class="row mb-3">
-                        <div class="col-sm-10">
-                            <input class="form-control" type="text" placeholder="{{id}}" readonly>
-                        </div>
-                    </div>
-                </div>
-
-                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
-                <div class="col-sm-10">
-                    <div class="row mb-3">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nombre" formControlName="nombre" [ngClass]="{'is-valid' : f.nombre.dirty && !(f.nombre.errors?.required || f.nombre.errors?.minlength) }">
-                            <div *ngIf="f.nombre.dirty && f.nombre.errors?.required" class="text-danger">
-                                Se debe introducir un nombre
-                            </div>
-                            <div *ngIf="f.nombre.dirty && f.nombre.errors?.minlength" class="text-danger">
-                                El nombre introducido es demasiado corto
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <label for="dni" class="col-sm-2 col-form-label">DNI</label>
-                <div class="col-sm-10">
-                    <div class="row mb-3">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="dni" formControlName="dni" [ngClass]="{'is-valid' : f.dni.dirty && !(f.dni.errors?.required || f.dni.errors?.minlength) }">
-                            <div *ngIf="f.dni.dirty && f.dni.errors?.required" class="text-danger">
-                                Se debe introducir un DNI
-                            </div>
-                            <div *ngIf="f.dni.dirty && f.dni.errors?.minlength" class="text-danger">
-                                El DNI introducido es demasiado corto
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <label for="apellidos" class="col-sm-2 col-form-label">Apellidos</label>
-                <div class="col-sm-10">
-                    <div class="row mb-3">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="apellidos" formControlName="apellidos" [ngClass]="{'is-valid' : f.apellidos.dirty && !(f.apellidos.errors?.required || f.apellidos.errors?.minlength) }">
-                            <div *ngIf="f.apellidos.dirty && f.apellidos.errors?.required" class="text-danger">
-                                Se debe introducir los Apellidos
-                            </div>
-                            <div *ngIf="f.apellidos.dirty && f.apellidos.errors?.minlength" class="text-danger">
-                                Los Apellidos son demasiado cortos
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <label for="login" class="col-sm-2 col-form-label">Login</label>
-                <div class="col-sm-10">
-                    <div class="row mb-3">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="login" formControlName="login" [ngClass]="{'is-valid' : f.login.dirty && !(f.login.errors?.required || f.login.errors?.minlength) }">
-                            <div *ngIf="f.login.dirty && f.login.errors?.required" class="text-danger">
-                                Se debe introducir un Login
-                            </div>
-                            <div *ngIf="f.login.dirty && f.login.errors?.minlength" class="text-danger">
-                                El Login introducido es demasiado corto
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <label for="email" class="col-sm-2 col-form-label">email</label>
-                <div class="col-sm-10">
-                    <div class="row mb-3">
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="email" formControlName="email" [ngClass]="{'is-valid' : f.email.dirty && !(f.email.errors?.required || f.email.errors?.minlength) }">
-                            <div *ngIf="f.email.dirty && f.email.errors?.required" class="text-danger">
-                                Se debe introducir un email
-                            </div>
-                            <div *ngIf="f.email.dirty && f.email.errors?.minlength" class="text-danger">
-                                El email introducido es demasiado corto
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <label for="tusuario" class="col-sm-2 col-form-label">Tipo Usuario</label>
-
-                <div class="col-sm-10">
-                    <div class="row mb-3">
-                        <div class="col-sm-10">
-                            <div class="input-group">
-                                <span class="input-group-text">{{oUsuario2Show.tipousuario.nombre}}</span>
-                                <input type="number" class="form-control" id="tusuario" formControlName="tusuario" (ngModelChange)="onChangeTUsuario($event)">
-                                <button type="button" class="btn btn-success" (click)="openModal()">Buscar tusuario</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
-                    <button type="submit" class="btn btn-warning" [disabled]="oForm.invalid || oForm.pristine"><i
-              [ngClass]="oIconService.getIcon('ok')"></i> Modificar
-            el {{strTitleSingular}}</button>
-                </div>
-            </div>
-
-        </form>
 
         <div class="control-group text-center mt-5">
             <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
-                <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i class="fas fa-home"></i> Página
-          principal</a>
-                <a class="btn btn-primary mx-2" [routerLink]="['/' + strEntity + '/plist']"><i
+              
+                <a class="btn" [routerLink]="['/' + strEntity + '/plist']"><i
             [ngClass]="oIconService.getIcon('plist')"></i> Listado de
           {{ strTitlePlural }}</a>
-                <a class="btn btn-primary mx-2" (click)="goBack()"><i class="fas fa-arrow-circle-left"></i> Volver </a>
+                <a class="btn" (click)="goBack()"><i class="fas fa-arrow-circle-left"></i> Volver </a>
             </div>
         </div>
 
     </div>
+    <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()" *ngIf="oForm">
+
+    <div class="container">
+    
+        <div class="body d-md-flex align-items-center justify-content-between">
+            <div class="box-1 mt-md-0 mt-5"> <img src="https://images.pexels.com/photos/3585074/pexels-photo-3585074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="" alt=""> </div>
+            <div class=" box-2   h-100">
+                <h1 class="titulo">Editar Usuario</h1>
+               
+                <div class="mt-5 cont">
+                  
+                    <div id="campos" class="">
+                        <label for="id" class="col-sm-2 col-form-label">Id</label>
+                        <input class="form-control" type="text" placeholder="{{id}}" readonly>
+                     
+                    </div>
+                    <div id="campos" class="">
+                    <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                   <input type="text" class="form-control" id="nombre" formControlName="nombre" >
+                </div> 
+                <div id="campos" class="">
+                    <label for="nombre" class="col-sm-2 col-form-label">DNI</label>
+                   <input type="text" class="form-control" id="dni" formControlName="dni" >
+                </div>   
+                <div id="campos" class="">
+                    <label for="nombre" class="col-sm-2 col-form-label">Apellidos</label>
+                   <input type="text" class="form-control" id="apellidos" formControlName="apellidos">
+                </div>   
+                <div id="campos" class="">
+                    <label for="nombre" class="col-sm-2 col-form-label">Login</label>
+                   <input type="text" class="form-control" id="login" formControlName="login" >
+                </div>  
+                <div id="campos" class="">
+                    <label for="nombre" class="col-sm-2 col-form-label">Email</label>
+                   <input type="text" class="form-control" id="email" formControlName="email" >
+                </div> 
+                <div id="campos" class="">
+                    <label for="tusuario" class="col-sm-2 col-form-label">Tipo Usuario</label>
+                    <span class="input-group-text">{{oUsuario2Show.tipousuario.nombre}}</span>
+                    <input type="number" class="form-control" id="tusuario" formControlName="tusuario" (ngModelChange)="onChangeTUsuario($event)">
+                    <button type="button" class="btn" (click)="openModal()">Buscar usuario</button>
+                </div>       
+                           
+                   
+                </div>
+              
+                <div class="mt-auto">
+                    <div class="row mb-3 justify-content-center">
+                        <div class="d-grid gap-2 d-md-block mt-4 d-md-flex justify-content-md-center">
+                            <button type="submit" class="btn" [disabled]="oForm.invalid || oForm.pristine"><i
+                      [ngClass]="oIconService.getIcon('ok')"></i> Modificar
+                    el {{strTitleSingular}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    </form>
 </div>
 
 </div>

@@ -1,6 +1,6 @@
 
 <app-adminbar></app-adminbar>
-<div class="res">
+<!-- <div class="res">
 
 <div class="container my-3">
 
@@ -64,19 +64,99 @@
 
         </form>
 
-        <div class="control-group text-center mt-5">
-            <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
-                <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i class="fas fa-home"></i> Página
-                    principal</a>
-                <a class="btn btn-primary mx-2" [routerLink]="['/factura/plist']"><i class="fas fa-file-alt"></i> Listado de
-                    Facturas</a>
-                <a class="btn btn-primary mx-2" (click)="goBack()"><i class="fas fa-arrow-circle-left"></i> Volver </a>
-            </div>
-        </div>
+     
 
     </div>
 </div>
-</div>
+</div> -->
+
+
+<div class="res">
+    <div class="container my-3">
+    
+       
+    
+        <div class="row justify-content-center">
+    
+    
+            <div class="control-group text-center mt-5">
+                <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
+                  
+                    <a class="btn" [routerLink]="['/' + strEntity + '/plist']"><i
+                [ngClass]="oIconService.getIcon('plist')"></i> Listado de
+              {{ strTitlePlural }}</a>
+                    <a class="btn" (click)="goBack()"><i class="fas fa-arrow-circle-left"></i> Volver </a>
+                </div>
+            </div>
+    
+        </div>
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()" *ngIf="oForm">
+    
+        <div class="container">
+        
+            <div class="body d-md-flex align-items-center justify-content-between">
+                <div class="box-1 mt-md-0 mt-5"> <img src="https://images.pexels.com/photos/4386335/pexels-photo-4386335.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt=""> </div>
+                <div class=" box-2   h-100">
+                    <h1 class="titulo">Crear Factura </h1>
+                   
+                    <div class="mt-5 cont">
+                      
+                        <div id="campos" class="">
+                        <label for="nombre" class="col-sm-2 col-form-label">Fecha</label>
+                       <input type="text" class="form-control" id="fecha" formControlName="fecha" >
+                    </div> 
+                    <div id="campos" class="">
+                        <label for="nombre" class="col-sm-2 col-form-label">IVA</label>
+                       <input type="text" class="form-control" id="iva" formControlName="iva" >
+                    </div> 
+                    <div id="campos" class="">
+                        <label for="pagado" class="col-sm-2 col-form-label">  Pagado</label>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="pagado" formControlName="pagado">
+                        <label class="form-check-label" for="pagado">
+                          
+                        </label>
+                    </div>
+                </div>
+                      
+                      
+                        </div>
+                     
+                 
+            
+                  
+    
+                    <div id="campos" class="">
+                    
+                        <label for="id_usuario" class="col-sm-2 col-form-label">Usuario</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="id_usuario" formControlName="usuario" >
+                </div>
+                              
+                           
+                                 
+                    </div>       
+                       
+                       
+                    </div>
+                  
+                    <div class="mt-auto">
+                        <div class="row mb-3 justify-content-center">
+                            <div class="d-grid gap-2 d-md-block mt-4 d-md-flex justify-content-md-center">
+                                <button type="submit" class="btn" [disabled]="oForm.invalid || oForm.pristine"><i
+                          [ngClass]="oIconService.getIcon('ok')"></i> Modificar
+                        el {{strTitleSingular}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        </form>
+    </div>
+    
+    </div>
 
 
 

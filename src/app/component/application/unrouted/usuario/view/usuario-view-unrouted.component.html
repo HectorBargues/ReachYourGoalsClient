@@ -1,43 +1,37 @@
-<div class="row justify-content-center">
-    <table class="table table-striped">
-        <tbody>
-            <tr>
-                <th><i [ngClass]="oIconService.getIcon('id')"></i> ID</th>
-                <td>{{oUsuario?.id}}</td>
-            </tr>
-            <tr>
-                <th><i [ngClass]="oIconService.getIcon('dni')"></i> DNI</th>
-                <td>{{oUsuario?.dni}}</td>
-            </tr>
-            <tr>
-                <th><i [ngClass]="oIconService.getIcon('nombre')"></i> Nombre</th>
-                <td>{{oUsuario?.nombre}}</td>
-            </tr>
-            <tr>
-                <th><i [ngClass]="oIconService.getIcon('nombre')"></i>Apellidos</th>
-                <td>{{oUsuario?.apellidos}}</td>
-            </tr>
-            <tr>
-                <th><i [ngClass]="oIconService.getIcon('login')"></i> Login</th>
-                <td>{{oUsuario?.login}}</td>
-            </tr>
-            <tr>
-                <th><i [ngClass]="oIconService.getIcon('email')"></i> email</th>
-                <td>{{oUsuario?.email}}</td>
-            </tr>
-            <tr>
-                <th><i [ngClass]="oIconService.getIcon('validado')"></i> validado</th>
-                <td [innerHTML]="oUsuario?.validado | showBoolean"></td>
-            </tr>
-            <tr>
-                <th><i [ngClass]="oIconService.getIcon('activado')"></i> activado</th>
-                <td [innerHTML]="oUsuario?.activo | showBoolean"></td>
-            </tr>
 
-            <tr>
-                <th><i [ngClass]="oIconService.getIcon('tipousuario')"></i> Tipo Usuario</th>
-                <td>({{oUsuario?.tipousuario.id}}) {{oUsuario?.tipousuario.nombre}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    
+    <div class="body d-md-flex align-items-center justify-content-between">
+        <div class="box-1 mt-md-0 mt-5"> <img src="https://images.pexels.com/photos/3585074/pexels-photo-3585074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="" alt=""> </div>
+        <div class=" box-2 d-flex flex-column h-100">
+           
+            <div class="mt-5 ">
+              
+             <h1 class="titulo">Vista de usuario</h1>
+                <div id="campos" class="d-flex flex-column ">
+                    <p class="mb-2 h-1"> id: {{oUsuario?.id}}</p> 
+                    <p class="mb-2 h-1"> DNI: {{oUsuario?.dni}}</p> 
+                    <p class="mb-2 h-1"> Nombre: {{oUsuario?.nombre}}</p> 
+                    <p class="mb-2 h-1"> Apellidos: {{oUsuario?.apellidos}}</p> 
+                    <p class="mb-2 h-1"> Login: {{oUsuario?.login}}</p> 
+                    <p class="mb-2 h-1"> Email: {{oUsuario?.email}}</p> 
+                   
+                    <div class="mt-1">
+                        <div class="d-grid gap-2 d-md-block  d-md-flex justify-content-md-center mt-4">
+                            <a class="btn" [routerLink]="['/usuario/edit/' + id]"><i
+                                    [ngClass]="oIconService.getIcon('edit')"></i>
+                                Modificarlo</a>
+                            <a class="btn" [routerLink]="['/usuario/remove/' + id]"><i
+                                    [ngClass]="oIconService.getIcon('remove')"></i>
+                                Borrarlo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-auto">
+                
+            </div>
+        </div> 
+    </div>
 </div>

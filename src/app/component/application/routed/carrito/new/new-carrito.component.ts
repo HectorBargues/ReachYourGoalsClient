@@ -60,10 +60,10 @@ export class NewCarritoComponent implements OnInit {
 
   ngOnInit(): void {
     this.oForm = this.oFormBuilder.group({
-      cantidad: ['', [Validators.required]],
-      precio: ['', [Validators.required]],
-      servicio: ['', [Validators.required]],
-      usuario: ['', [Validators.required]],
+      cantidad: ['',],
+      precio: ['', ],
+      servicio: ['', ],
+      usuario: ['', ],
     });
   }
 

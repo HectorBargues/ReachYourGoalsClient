@@ -64,7 +64,7 @@ export class TipousuarioEditRoutedComponent implements OnInit {
         id: [this.id],
         nombre: [
           this.oUserType.nombre,
-          [Validators.required, Validators.minLength(4)],
+         ,
         ],
       });
     });
@@ -107,6 +107,6 @@ export class TipousuarioEditRoutedComponent implements OnInit {
   }
 
   onClosePopup(): void {
-    this.oRouter.navigate([this.strEntity + '/view/' + this.id]);
+ 
   }
 }

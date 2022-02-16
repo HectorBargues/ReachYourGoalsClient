@@ -1,64 +1,53 @@
 <app-adminbar></app-adminbar>
 <div class="res">
 <div class="container my-3">
-
-    <app-header [title]="'Borrado de ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)" [iconEntity]="oIconService.getIcon(this.strEntity)">
-    </app-header>
     <div class="row justify-content-center">
-        <table class="table table-striped">
-            <tbody>
-                <tr>
-                    <th>ID</th>
-                    <td>{{oUsuario?.id}}</td>
-                </tr>
-                <tr>
-                    <th>Nombre</th>
-                    <td>{{oUsuario?.nombre}}</td>
-                </tr>
-                <tr>
-                    <th>Apellidos</th>
-                    <td>{{oUsuario?.apellidos}}</td>
-                </tr>
-
-                <tr>
-                    <th>DNI</th>
-                    <td>{{oUsuario?.dni}}</td>
-                </tr>
-                <tr>
-                    <th>Login</th>
-                    <td>{{oUsuario?.login}}</td>
-                </tr>
-                <tr>
-                    <th>email</th>
-                    <td>{{oUsuario?.email}}</td>
-                </tr>
-                <tr>
-                    <th>Tipo Usuario</th>
-                    <td>{{oUsuario?.tipousuario.id}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-5 control-group text-center my-3">
-            <div class="alert alert-danger my-3" role="alert">
-                <h3 class="">¿Está seguro de que quiere eliminar el usuario?</h3>
-                <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center my-4">
-                    <a class="btn btn-danger mx-2" (click)="removeOne()"><i [ngClass]="oIconService.getIcon('aceptar')"></i> SÍ</a>
-                    <a class="btn btn-success mx-2" (click)="goBack()"><i [ngClass]="oIconService.getIcon('rechazar')"></i> NO </a>
-                </div>
-            </div>
-        </div>
+      
 
         <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
-            <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i class="fas fa-home"></i> Página
-        principal</a>
-            <a class="btn btn-primary mx-2" [routerLink]="['/usuario/plist']"><i class="fas fa-file-alt"></i> Listado de
-        usuarios</a>
-            <a class="btn btn-primary mx-2" (click)="goBack()"><i class="fas fa-arrow-circle-left"></i> Volver </a>
+          
+            <a class="btn" [routerLink]="['/usuario/plist']"><i class="fas fa-file-alt"></i>
+                Listado
+                de usuarios</a>
+            <a class="btn" (click)="goBack()"><i class="fas fa-arrow-circle-left"></i> Volver </a>
         </div>
+    
 
     </div>
+  
+    <div class="container">
+    
+        <div class="body d-md-flex align-items-center justify-content-between">
+            <div class="box-1 mt-md-0 mt-5"> <img src="https://images.pexels.com/photos/3585074/pexels-photo-3585074.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="" alt=""> </div>
+            <div class=" box-2 d-flex flex-column h-100">
+               
+                <div class="mt-5 ">
+                  
+                 <h1 class="titulo">Borrado Usuario</h1>
+                    <div id="campos" class="d-flex flex-column ">
+                        <p class="mb-2 h-1"> id: {{oUsuario?.id}}</p> 
+                        <p class="mb-2 h-1"> DNI: {{oUsuario?.dni}}</p> 
+                        <p class="mb-2 h-1"> Nombre: {{oUsuario?.nombre}}</p> 
+                        <p class="mb-2 h-1"> Apellidos: {{oUsuario?.apellidos}}</p> 
+                        <p class="mb-2 h-1"> Login: {{oUsuario?.login}}</p> 
+                        <p class="mb-2 h-1"> Email: {{oUsuario?.email}}</p> 
+                       
+                        <div class="mt-1">
+                        
+                            <div class="d-grid gap-2 d-md-block  d-md-flex justify-content-md-center mt-4">
+                                <a class="btn" (click)="removeOne()"><i [ngClass]="oIconService.getIcon('aceptar')"></i> SÍ</a>
+                                <a class="btn" (click)="goBack()"><i [ngClass]="oIconService.getIcon('rechazar')"></i> NO </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-auto">
+                    
+                </div>
+            </div> 
+        </div>
+    </div>
+  
 </div>
 </div>
 

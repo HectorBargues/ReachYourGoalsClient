@@ -53,12 +53,12 @@ export class UsuarioNewRoutedComponent implements OnInit {
 
   ngOnInit(): void {
     this.oForm = this.oFormBuilder.group({
-      nombre: ['', [Validators.required, Validators.minLength(5)]],
-      dni: ['', [Validators.required, Validators.minLength(5)]],
-      apellidos: ['', [Validators.required, Validators.minLength(10)]],
-      login: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.minLength(5)]],
-      tusuario: ['', [Validators.required, Validators.maxLength(1)]],
+      nombre: ['', ],
+      dni: ['', ],
+      apellidos: ['', ],
+      login: ['', ],
+      email: ['', ],
+      tusuario: ['', ],
 
     });
   }

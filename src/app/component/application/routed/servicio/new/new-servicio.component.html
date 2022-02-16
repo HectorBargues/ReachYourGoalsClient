@@ -3,109 +3,100 @@
 
 <div class="container my-3">
 
-    <app-header [title]="'Creación de nuevo  ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)" [iconEntity]="oIconService.getIcon(this.strEntity)">
-    </app-header>
-
-    <div class="row justify-content-center">
-
-        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
-
-          
-
-            <div class="row mb-3">
-                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="nombre" formControlName="nombre" [ngClass]="{'is-valid' : f.nombre.dirty && !(f.nombre.errors?.required || f.nombre.errors?.minlength) }">
-                    <div *ngIf="f.nombre.dirty && f.nombre.errors?.required" class="text-danger">
-                        Se debe introducir un nombre
+        <div class="res">
+            <div class="container my-3">
+            
+               
+            
+                <div class="row justify-content-center">
+            
+            
+                    <div class="control-group text-center mt-5">
+                        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
+                          
+                            <a class="btn" [routerLink]="['/' + strEntity + '/plist']"><i
+                        [ngClass]="oIconService.getIcon('plist')"></i> Listado de
+                      {{ strTitlePlural }}</a>
+                            <a class="btn" (click)="goBack()"><i class="fas fa-arrow-circle-left"></i> Volver </a>
+                        </div>
                     </div>
-                    <div *ngIf="f.nombre.dirty && f.nombre.errors?.minlength" class="text-danger">
-                        El nombre introducido es demasiado corto
+            
+                </div>
+                <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()" *ngIf="oForm">
+            
+                <div class="container">
+                
+                    <div class="body d-md-flex align-items-center justify-content-between">
+                        <div class="box-1 mt-md-0 mt-5"> <img src="https://images.pexels.com/photos/260352/pexels-photo-260352.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt=""> </div>
+                        <div class=" box-2   h-100">
+                            <h1 class="titulo">Crear Servicio</h1>
+                           
+                            <div class="mt-5 cont">
+                              
+                                <div id="campos" class="">
+                                <label for="nombre" class="col-sm-2 col-form-label">Duración</label>
+                               <input type="text" class="form-control" id="codigo" formControlName="codigo" >
+                            </div> 
+                            <div id="campos" class="">
+                                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                               <input type="text" class="form-control" id="nombre" formControlName="nombre" >
+                            </div>   
+                            <div id="campos" class="">
+                                <label for="nombre" class="col-sm-2 col-form-label">Descripcion</label>
+                               <input type="text" class="form-control" id="descripcion" formControlName="descripcion">
+                            </div>   
+                            <div id="campos" class="">
+                                <label for="nombre" class="col-sm-2 col-form-label">Existencias</label>
+                               <input type="text" class="form-control" id="existencias" formControlName="existencias" >
+                            </div>  
+                            <div id="campos" class="">
+                                <label for="nombre" class="col-sm-2 col-form-label">Precio</label>
+                               <input type="text" class="form-control" id="precio" formControlName="precio" >
+                            </div> 
+                            <div id="campos" class="">
+                                <label for="imagen" class="col-sm-2 col-form-label">imagen</label>
+                                <div class="col-sm-10">
+                                    
+                                    <input #imageInput type="file" accept="image/*" class="form-control-file mt-4" lang="es" name="imagen" (change)="processFile($event)" />
+                                    <div><img [src]="imageSrc" *ngIf="imageSrc != null" alt="" style="height:100px" class="my-3" /></div>
+                                    <div><img *ngIf="imageSrc == null" [src]="'http://localhost:8082/file/' + oServshow.imagen" style="height:100px" class="my-3" /></div>
+                                </div>
+                                   
+                               
+                            </div>       
+                                   
+                            <div id="campos" class="">
+                                <label for="tiposervicio" class="col-sm-2 col-form-label">id_tiposervicio</label>
+                             
+                                 <input type="text" class="form-control" id="tiposervicio" formControlName="tiposervicio">
+                                   
+                               
+                            </div>       
+                                       
+                               
+                            </div>
+                          
+                            <div class="mt-auto">
+                                <div class="row mb-3 justify-content-center">
+                                    <div class="d-grid gap-2 d-md-block mt-4 d-md-flex justify-content-md-center">
+                                        <button type="submit" class="btn" [disabled]="oForm.invalid || oForm.pristine"><i
+                                  [ngClass]="oIconService.getIcon('ok')"></i> Añadir
+                                el {{strTitleSingular}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                     </div>
                 </div>
+                </form>
             </div>
-            <div class="row mb-3">
-                <label for="descripcion" class="col-sm-2 col-form-label">Descripcion</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="descripcion" formControlName="descripcion" [ngClass]="{'is-valid' : f.descripcion.dirty && !(f.descripcion.errors?.required || f.descripcion.errors?.minlength) }">
-                    <div *ngIf="f.descripcion.dirty && f.descripcion.errors?.required" class="text-danger">
-                        Se debe introducir una descripcion
-                    </div>
-                    <div *ngIf="f.descripcion.dirty && f.descripcion.errors?.minlength" class="text-danger">
-                        La descripcion introducida es demasiado corta
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <label for="codigo" class="col-sm-2 col-form-label">Duracion</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="codigo" formControlName="codigo" [ngClass]="{'is-valid' : f.codigo.dirty && !(f.codigo.errors?.required || f.codigo.errors?.minlength) }">
-                    <div *ngIf="f.codigo.dirty && f.codigo.errors?.required" class="text-danger">
-                        Se debe introducir una duracion
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="existencias" class="col-sm-2 col-form-label">Existencias</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="existencias" formControlName="existencias">
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <label for="precio" class="col-sm-2 col-form-label">Precio</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="precio" formControlName="precio">
-                </div>
+            
             </div>
 
 
-
-            <div class="row mb-3">
-                <label for="imagen" class="col-sm-2 col-form-label">Imagen</label>
-                <div class="col-sm-10">
-                    <input formControlName="imagen"#imageInput type="file" accept="image/*" class="form-control-file mt-4" lang="es"
-      name="imagen" (change)="processFile($event)" />
-      <div><img [src]="imageSrc" *ngIf="imageSrc != null" alt="" style="height:100px" class="my-3" /></div>
-  <div><img *ngIf="imageSrc == null" [src]="'http://localhost:8082/file/' + oServshow?.imagen" style="height:100px" class="my-3" /></div>
-                </div>
-            </div>
+  
 
 
-            <div class="row mb-3">
-                <label for="tiposervicio" class="col-sm-2 col-form-label">Id de Tipo de servicio</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="tiposervicio" formControlName="tiposervicio" [ngClass]="{'is-valid' : f.tiposervicio.dirty && !(f.tiposervicio.errors?.required || f.tiposervicio.errors?.minlength) }">
-                    <div *ngIf="f.tiposervicio.dirty && f.tiposervicio.errors?.required" class="text-danger">
-                        Se debe introducir un ID de tipo de servicio
-                    </div>
-                </div>
-            </div>
-
-            <div class="row mb-3 justify-content-center">
-                <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
-                    <button type="submit" class="btn btn-warning" [disabled]="oForm.invalid || oForm.pristine"><i [ngClass]="oIconService.getIcon('ok')"></i> Crear
-            el nuevo {{strTitleSingular}}</button>
-                </div>
-            </div>
-
-        </form>
-
-
-        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
-            <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i [ngClass]="oIconService.getIcon('home')"></i> Página
-          principal</a>
-            <a class="btn btn-primary mx-2" [routerLink]="['/' + strEntity + '/plist']"><i
-            [ngClass]="oIconService.getIcon('plist')"></i> Listado de {{strTitlePlural}}</a>
-            <a class="btn btn-primary mx-2" (click)="goBack()"><i [ngClass]="oIconService.getIcon('volver')"></i> Volver
-        </a>
-        </div>
-
-
-    </div>
-</div>
-</div>
 
 
 <app-popup [show]="eventsSubjectShowPopup.asObservable()" [body]="strResult" (close)="onClosePopup()"></app-popup>
